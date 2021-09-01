@@ -93,7 +93,6 @@ export class NumberInput {
     if (!this.options.autoSign && max < 0) {
       max = this.toFloat(Number.MAX_SAFE_INTEGER)
     }
-    max = this.getNextStep(max - this.step)
     return max
   }
 
@@ -201,7 +200,7 @@ export class NumberInput {
               return newValueLength - caretPositionFromLeft - 1
             }
 
-            if (decimalSymbol) {
+            if (decimalSymbol !== undefined && value.indexOf(decimalSymbol) !== -1) {
               const decimalSymbolPosition = value.indexOf(decimalSymbol) + 1
               if (Math.abs(newValueLength - value.length) > 1 && selectionStart <= decimalSymbolPosition) {
                 return this.formattedValue.indexOf(decimalSymbol) + 1
@@ -236,7 +235,7 @@ export class NumberInput {
           const getCaretPositionOnFocus = () => {
             const { prefix, suffix, groupingSymbol } = this.numberFormat
             if (!this.options.hidePrefixOrSuffixOnFocus) {
-              if (selectionStart > value.length - suffix.length) {
+              if (selectionStart >= value.length - suffix.length) {
                 return this.formattedValue.length - suffix.length
               } else if (selectionStart < prefix.length) {
                 return prefix.length
@@ -245,6 +244,8 @@ export class NumberInput {
             let result = selectionStart
             if (this.options.hidePrefixOrSuffixOnFocus) {
               result -= prefix.length
+            }
+            if (this.options.hideGroupingSeparatorOnFocus) {
               result -= count(value.substring(0, selectionStart), groupingSymbol)
             }
             return result
