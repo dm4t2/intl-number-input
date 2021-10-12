@@ -23,7 +23,7 @@ jobs:
         run: yarn types
         working-directory: packages/core
       - name: Build
-        run: yarn build
+        run: cd types/src && ls
         working-directory: packages/core
       - name: Release
         env:
