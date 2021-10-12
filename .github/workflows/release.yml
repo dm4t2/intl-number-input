@@ -17,14 +17,14 @@ jobs:
         with:
           node-version: 'lts/*'
       - name: Install dependencies
-        run: yarn install
+        run: npm ci
         working-directory: packages/core
       - name: Build
-        run: yarn build
+        run: npm run build
         working-directory: packages/core
       - name: Release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: yarn release
+        run: npm run release
         working-directory: packages/core
