@@ -32,7 +32,7 @@
     "test": "jest",
     "lint": "eslint",
     "prebuild": "rimraf dist",
-    "build": "tsc --emitDeclarationOnly --declaration --outDir dist/types && rollup -c rollup.config.js",
+    "build": "tsc --emitDeclarationOnly --declaration --outDir ./dist/types && rollup -c rollup.config.js",
     "release": "semantic-release -e semantic-release-monorepo"
   },
   "devDependencies": {

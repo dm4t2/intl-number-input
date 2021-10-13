@@ -10,7 +10,7 @@ const banner = `/**
 
 export default [
   {
-    input: `src/index.ts`,
+    input: `./src/index.ts`,
     output: [
       {
         file: pkg.main,
@@ -28,8 +28,8 @@ export default [
     plugins: [typescript({ useTsconfigDeclarationDir: true })]
   },
   {
-    input: 'dist/types/src/index.d.ts',
-    output: [{ file: 'dist/index.d.ts', format: 'es' }],
+    input: './dist/types/src/index.d.ts',
+    output: [{ file: './dist/index.d.ts', format: 'es' }],
     plugins: [dts()]
   }
 ]
