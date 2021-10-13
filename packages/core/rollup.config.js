@@ -28,7 +28,7 @@ export default [
     plugins: [typescript({ useTsconfigDeclarationDir: true })]
   },
   {
-    input: 'src/index.d.ts',
+    input: 'dist/types/src/index.d.ts',
     output: [{ file: 'dist/index.d.ts', format: 'es' }],
     plugins: [dts()]
   }
