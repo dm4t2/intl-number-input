@@ -6,6 +6,9 @@
     },
     "esModuleInterop": true
   },
+  "include": [
+    "src/*.ts"
+  ],
   "types": [
     "jest"
   ]
