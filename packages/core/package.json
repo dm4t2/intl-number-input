@@ -31,10 +31,8 @@
   "scripts": {
     "test": "jest",
     "lint": "eslint",
-    "pretypes": "rimraf types",
     "prebuild": "rimraf dist",
-    "types": "tsc --emitDeclarationOnly --declaration --outDir types",
-    "build": "rollup -c rollup.config.js",
+    "build": "tsc --emitDeclarationOnly --declaration && rollup -c rollup.config.js",
     "release": "semantic-release -e semantic-release-monorepo"
   },
   "devDependencies": {

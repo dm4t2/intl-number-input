@@ -19,11 +19,8 @@ jobs:
       - name: Install dependencies
         run: npm install
         working-directory: packages/core
-      - name: Types
-        run: yarn types
-        working-directory: packages/core
       - name: Build
-        run: cd types/src && ls
+        run: yarn build
         working-directory: packages/core
       - name: Release
         env:
