@@ -31,8 +31,7 @@
   "scripts": {
     "test": "jest",
     "lint": "eslint",
-    "prebuild": "rimraf dist",
-    "build": "tsc --emitDeclarationOnly --declaration --outDir ./dist/types && rollup -c rollup.config.js",
+    "build": "tsc --emitDeclarationOnly --declaration --outDir types && rollup -c rollup.config.js",
     "release": "semantic-release -e semantic-release-monorepo"
   },
   "devDependencies": {
@@ -42,7 +41,7 @@
     "jest-environment-jsdom-fifteen": "^1.0.2",
     "rimraf": "^3.0.2",
     "rollup": "^2.58.0",
-    "rollup-plugin-dts": "^3.0.2",
+    "rollup-plugin-dts": "^4.0.0",
     "rollup-plugin-typescript2": "^0.30.0",
     "semantic-release": "^18.0.0",
     "semantic-release-monorepo": "^7.0.5",
