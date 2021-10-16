@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
-    "target": "esnext",
-    "module": "esnext",
+    "target": "ES2018",
+    "module": "ESNext",
     "moduleResolution": "node",
     "strict": true,
     "sourceMap": true,
@@ -11,7 +11,13 @@
     ],
     "baseUrl": ".",
     "paths": {
-      "@intl-number-input/*": ["packages/*/src"]
+      "@/*": ["src/*"]
     }
-  }
+  },
+  "include": [
+    "src/*.ts"
+  ],
+  "types": [
+    "jest"
+  ]
 }

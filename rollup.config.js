@@ -3,7 +3,7 @@ import dts from 'rollup-plugin-dts'
 import pkg from './package.json'
 
 const banner = `/**
- * @intl-number-input/core ${pkg.version}
+ * Intl Number Input ${pkg.version}
  * (c) ${new Date().getFullYear()} ${pkg.author}
  * @license ${pkg.license}
  */`

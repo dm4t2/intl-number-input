@@ -22,7 +22,7 @@ export class NumberFormat {
 
   constructor(options: NumberInputOptions) {
     const { formatStyle: style, currency, unit, locale, precision } = options
-    const numberFormat = new Intl.NumberFormat(locale, { currency, unit, style })
+    const numberFormat = new Intl.NumberFormat(locale, { currency, unit, style, minimumFractionDigits: style !== NumberFormatStyle.Currency ? 1 : undefined })
     const ps = numberFormat.format(123456)
 
     this.locale = locale
@@ -39,8 +39,9 @@ export class NumberFormat {
     } else if (precision !== undefined) {
       this.minimumFractionDigits = this.maximumFractionDigits = precision
     } else {
-      this.minimumFractionDigits = numberFormat.resolvedOptions().minimumFractionDigits
-      this.maximumFractionDigits = numberFormat.resolvedOptions().maximumFractionDigits
+      const { maximumFractionDigits, minimumFractionDigits } = new Intl.NumberFormat(locale, { currency, unit, style }).resolvedOptions()
+      this.minimumFractionDigits = minimumFractionDigits
+      this.maximumFractionDigits = maximumFractionDigits
     }
 
     this.prefix = substringBefore(ps, this.digits[1])
@@ -79,12 +80,12 @@ export class NumberFormat {
     }
   ): string {
     return value != null
-      ? value.toLocaleString(this.locale, {
+      ? new Intl.NumberFormat(this.locale, {
           style: this.style,
           currency: this.currency,
           unit: this.unit,
           ...options
-        })
+        }).format(value)
       : ''
   }
 
