@@ -527,5 +527,28 @@ describe('NumberFormat', () => {
         })
       })
     })
+
+    describe('decimal', () => {
+      it('de-DE', () => {
+        expect(
+          new NumberFormat({
+            formatStyle: NumberFormatStyle.Decimal,
+            locale: 'de-DE'
+          })
+        ).toMatchSnapshot()
+      })
+    })
+
+    describe('unit', () => {
+      it('de-DE', () => {
+        expect(
+          new NumberFormat({
+            formatStyle: NumberFormatStyle.Unit,
+            locale: 'de-DE',
+            unit: 'byte'
+          })
+        ).toMatchSnapshot()
+      })
+    })
   })
 })

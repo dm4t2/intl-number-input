@@ -405,3 +405,61 @@ NumberFormat {
   "unit": undefined,
 }
 `;
+
+exports[`NumberFormat constructing number formats decimal de-DE 1`] = `
+NumberFormat {
+  "currency": undefined,
+  "decimalSymbol": ",",
+  "digits": Array [
+    "0",
+    "1",
+    "2",
+    "3",
+    "4",
+    "5",
+    "6",
+    "7",
+    "8",
+    "9",
+  ],
+  "groupingSymbol": ".",
+  "locale": "de-DE",
+  "maximumFractionDigits": 3,
+  "minimumFractionDigits": 0,
+  "minusSymbol": "-",
+  "negativePrefix": "-",
+  "prefix": "",
+  "style": "decimal",
+  "suffix": "",
+  "unit": undefined,
+}
+`;
+
+exports[`NumberFormat constructing number formats unit de-DE 1`] = `
+NumberFormat {
+  "currency": undefined,
+  "decimalSymbol": ",",
+  "digits": Array [
+    "0",
+    "1",
+    "2",
+    "3",
+    "4",
+    "5",
+    "6",
+    "7",
+    "8",
+    "9",
+  ],
+  "groupingSymbol": ".",
+  "locale": "de-DE",
+  "maximumFractionDigits": 3,
+  "minimumFractionDigits": 0,
+  "minusSymbol": "-",
+  "negativePrefix": "-",
+  "prefix": "",
+  "style": "unit",
+  "suffix": " Bytes",
+  "unit": "byte",
+}
+`;
