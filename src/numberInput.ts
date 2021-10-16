@@ -1,6 +1,6 @@
 import { DECIMAL_SEPARATORS, NumberFormat } from './numberFormat'
 import { AutoDecimalModeNumberMask, DefaultNumberMask, NumberMask } from './numberMask'
-import { NumberInputConstructorArgs, NumberInputOptions, NumberInputValue } from './api'
+import { NumberFormatStyle, NumberInputConstructorArgs, NumberInputOptions, NumberInputValue } from './api'
 import { count } from './utils'
 
 export class NumberInput {
@@ -96,8 +96,8 @@ export class NumberInput {
     return max
   }
 
-  private validateStep(value: number | null): number | null {
-    return value != null && this.toInteger(value) % this.toInteger(this.step) !== 0 ? this.getNextStep(value) : value
+  private validateStep(value: number): number {
+    return this.toInteger(value) % this.toInteger(this.step) !== 0 ? this.getNextStep(value) : value
   }
 
   private getNextStep(value: number): number {
@@ -112,12 +112,18 @@ export class NumberInput {
     return Number(value.toFixed(this.numberFormat.maximumFractionDigits).split('.').join(''))
   }
 
-  private validateValueRange(value: number | null): number | null {
-    return value != null ? Math.min(Math.max(value, this.minValue), this.maxValue) : value
+  private validateValueRange(value: number): number {
+    return Math.min(Math.max(value, this.minValue), this.maxValue)
   }
 
   private applyFixedFractionFormat(number: number | null, forcedChange = false) {
-    this.format(this.numberFormat.format(this.validateStep(this.validateValueRange(number))))
+    if (number != null) {
+      number = this.validateStep(this.validateValueRange(number))
+      if (this.options.formatStyle === NumberFormatStyle.Percent) {
+        number *= 100
+      }
+    }
+    this.format(this.numberFormat.format(number))
     if (number !== this.numberValue || forcedChange) {
       this.onChange?.(this.getValue())
     }

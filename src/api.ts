@@ -19,7 +19,8 @@ export interface NumberRange {
 export enum NumberFormatStyle {
   Decimal = 'decimal',
   Currency = 'currency',
-  Unit = 'unit'
+  Unit = 'unit',
+  Percent = 'percent'
 }
 
 export interface NumberInputOptions {
