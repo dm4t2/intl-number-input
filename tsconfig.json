@@ -5,20 +5,13 @@
     "moduleResolution": "node",
     "strict": true,
     "sourceMap": true,
-    "lib": [
-      "esnext",
-      "dom"
-    ],
+    "lib": ["esnext", "dom"],
     "baseUrl": ".",
     "paths": {
       "@/*": ["src/*"]
     },
     "esModuleInterop": true
   },
-  "include": [
-    "src/*.ts"
-  ],
-  "types": [
-    "jest"
-  ]
+  "include": ["src/*.ts"],
+  "types": ["jest"]
 }

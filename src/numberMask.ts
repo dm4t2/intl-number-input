@@ -14,7 +14,7 @@ export interface NumberMask {
 }
 
 export class DefaultNumberMask extends AbstractNumberMask implements NumberMask {
-  conformToMask(str: string, previousConformedValue = '') {
+  conformToMask(str: string, previousConformedValue = ''): string | { fractionDigits: string; numberValue: number } {
     const negative = this.numberFormat.isNegative(str)
     const checkIncompleteValue = (str: string) => {
       if (str === '' && negative && previousConformedValue !== this.numberFormat.negativePrefix) {
@@ -59,7 +59,7 @@ export class DefaultNumberMask extends AbstractNumberMask implements NumberMask 
 }
 
 export class AutoDecimalModeNumberMask extends AbstractNumberMask implements NumberMask {
-  conformToMask(str: string, previousConformedValue = '') {
+  conformToMask(str: string, previousConformedValue = ''): string | { fractionDigits: string; numberValue: number } {
     if (
       str === '' ||
       (this.numberFormat.parse(previousConformedValue) === 0 &&
