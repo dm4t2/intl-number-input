@@ -14,10 +14,9 @@ jobs:
           release-type: node
       - uses: actions/checkout@v2
         if: ${{ steps.release.outputs.release_created }}
-      - uses: actions/setup-node@v1
+      - uses: actions/setup-node@v2
         with:
-          node-version: 14
-          registry-url: 'https://registry.npmjs.org'
+          node-version: '16'
         if: ${{ steps.release.outputs.release_created }}
       - run: yarn install --frozen-lockfile
         if: ${{ steps.release.outputs.release_created }}
