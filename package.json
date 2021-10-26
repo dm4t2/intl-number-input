@@ -30,7 +30,7 @@
   ],
   "scripts": {
     "test": "jest",
-    "lint": "eslint --no-fix {**/*,*}.{js,ts} && prettier --check {**/*,*}.{js,ts}",
+    "lint": "eslint --no-fix --max-warnings 0 {**/*,*}.{js,ts} && prettier --check {**/*,*}.{js,ts}",
     "prebuild": "rimraf dist",
     "build": "tsc --emitDeclarationOnly --declaration --outDir dist/types && rollup -c rollup.config.js"
   },
