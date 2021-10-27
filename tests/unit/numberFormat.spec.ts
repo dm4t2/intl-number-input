@@ -123,6 +123,10 @@ describe('NumberFormat', () => {
           expect(new NumberFormat({ formatStyle: NumberFormatStyle.Currency, currency: 'EUR', precision: 0 })).toEqual(
             expect.objectContaining({ minimumFractionDigits: 0, maximumFractionDigits: 0 })
           )
+
+          expect(new NumberFormat({ formatStyle: NumberFormatStyle.Currency, currency: 'EUR', precision: { min: 2, max: 5 } })).toEqual(
+            expect.objectContaining({ minimumFractionDigits: 2, maximumFractionDigits: 5 })
+          )
         })
 
         it('should ignore the custom precision if the locale does not support decimal digits', () => {
@@ -524,6 +528,33 @@ describe('NumberFormat', () => {
               currency: 'EUR'
             }).format(1234.5789, { minimumFractionDigits: 4 })
           ).toBe('€1,234.5789')
+
+          expect(
+            new NumberFormat({
+              formatStyle: NumberFormatStyle.Currency,
+              locale: 'en',
+              currency: 'EUR',
+              precision: 3
+            }).format(1234.5789)
+          ).toBe('€1,234.579')
+
+          expect(
+            new NumberFormat({
+              formatStyle: NumberFormatStyle.Currency,
+              locale: 'en',
+              currency: 'EUR',
+              precision: { min: 2, max: 5 }
+            }).format(1234.56789)
+          ).toBe('€1,234.56789')
+
+          expect(
+            new NumberFormat({
+              formatStyle: NumberFormatStyle.Currency,
+              locale: 'en',
+              currency: 'EUR',
+              precision: { min: 2, max: 5 }
+            }).format(1234.5)
+          ).toBe('€1,234.50')
         })
       })
     })

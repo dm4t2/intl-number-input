@@ -32,7 +32,7 @@ export interface NumberInputOptions {
   hidePrefixOrSuffixOnFocus?: boolean
   hideGroupingSeparatorOnFocus?: boolean
   hideNegligibleDecimalDigitsOnFocus?: boolean
-  precision?: number
+  precision?: number | NumberRange
   autoDecimalDigits?: boolean
   autoSign?: boolean
   valueRange?: NumberRange

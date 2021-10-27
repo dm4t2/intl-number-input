@@ -36,8 +36,11 @@ export class NumberFormat {
 
     if (this.decimalSymbol === undefined) {
       this.minimumFractionDigits = this.maximumFractionDigits = 0
-    } else if (precision !== undefined) {
+    } else if (typeof precision === 'number') {
       this.minimumFractionDigits = this.maximumFractionDigits = precision
+    } else if (typeof precision === 'object') {
+      this.minimumFractionDigits = precision.min || 0
+      this.maximumFractionDigits = precision.max !== undefined ? precision.max : 15
     } else {
       const { maximumFractionDigits, minimumFractionDigits } = new Intl.NumberFormat(locale, { currency, unit, style }).resolvedOptions()
       this.minimumFractionDigits = minimumFractionDigits
