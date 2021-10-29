@@ -550,5 +550,25 @@ describe('NumberFormat', () => {
         ).toMatchSnapshot()
       })
     })
+
+    describe('percent', () => {
+      describe('parse', () => {
+        it('should parse a formatted number', () => {
+          expect(
+            new NumberFormat({
+              formatStyle: NumberFormatStyle.Percent,
+              locale: 'en'
+            }).parse('1234')
+          ).toBe(12.34)
+
+          expect(
+            new NumberFormat({
+              formatStyle: NumberFormatStyle.Percent,
+              locale: 'en'
+            }).parse('123,400%')
+          ).toBe(1234)
+        })
+      })
+    })
   })
 })

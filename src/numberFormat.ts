@@ -23,7 +23,7 @@ export class NumberFormat {
   constructor(options: NumberInputOptions) {
     const { formatStyle: style, currency, unit, locale, precision } = options
     const numberFormat = new Intl.NumberFormat(locale, { currency, unit, style, minimumFractionDigits: style !== NumberFormatStyle.Currency ? 1 : undefined })
-    const ps = numberFormat.format(123456)
+    const ps = numberFormat.format(style === NumberFormatStyle.Percent ? 1234.56 : 123456)
 
     this.locale = locale
     this.style = style
