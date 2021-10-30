@@ -3,6 +3,7 @@
 exports[`NumberFormat constructing number formats currency should work for the respective locale and currency: ar-SA_SAR 1`] = `
 NumberFormat {
   "currency": "SAR",
+  "currencyDisplay": undefined,
   "decimalSymbol": "٫",
   "digits": Array [
     "٠",
@@ -26,12 +27,14 @@ NumberFormat {
   "style": "currency",
   "suffix": " ر.س.‏",
   "unit": undefined,
+  "unitDisplay": undefined,
 }
 `;
 
 exports[`NumberFormat constructing number formats currency should work for the respective locale and currency: de-CH_EUR 1`] = `
 NumberFormat {
   "currency": "EUR",
+  "currencyDisplay": undefined,
   "decimalSymbol": ".",
   "digits": Array [
     "0",
@@ -55,12 +58,14 @@ NumberFormat {
   "style": "currency",
   "suffix": "",
   "unit": undefined,
+  "unitDisplay": undefined,
 }
 `;
 
 exports[`NumberFormat constructing number formats currency should work for the respective locale and currency: de-DE_EUR 1`] = `
 NumberFormat {
   "currency": "EUR",
+  "currencyDisplay": undefined,
   "decimalSymbol": ",",
   "digits": Array [
     "0",
@@ -84,12 +89,14 @@ NumberFormat {
   "style": "currency",
   "suffix": " €",
   "unit": undefined,
+  "unitDisplay": undefined,
 }
 `;
 
 exports[`NumberFormat constructing number formats currency should work for the respective locale and currency: en-GB_GBP 1`] = `
 NumberFormat {
   "currency": "GBP",
+  "currencyDisplay": undefined,
   "decimalSymbol": ".",
   "digits": Array [
     "0",
@@ -113,12 +120,14 @@ NumberFormat {
   "style": "currency",
   "suffix": "",
   "unit": undefined,
+  "unitDisplay": undefined,
 }
 `;
 
 exports[`NumberFormat constructing number formats currency should work for the respective locale and currency: en-IN_INR 1`] = `
 NumberFormat {
   "currency": "INR",
+  "currencyDisplay": undefined,
   "decimalSymbol": ".",
   "digits": Array [
     "0",
@@ -142,12 +151,14 @@ NumberFormat {
   "style": "currency",
   "suffix": "",
   "unit": undefined,
+  "unitDisplay": undefined,
 }
 `;
 
 exports[`NumberFormat constructing number formats currency should work for the respective locale and currency: en-US_USD 1`] = `
 NumberFormat {
   "currency": "USD",
+  "currencyDisplay": undefined,
   "decimalSymbol": ".",
   "digits": Array [
     "0",
@@ -171,12 +182,14 @@ NumberFormat {
   "style": "currency",
   "suffix": "",
   "unit": undefined,
+  "unitDisplay": undefined,
 }
 `;
 
 exports[`NumberFormat constructing number formats currency should work for the respective locale and currency: es-ES_EUR 1`] = `
 NumberFormat {
   "currency": "EUR",
+  "currencyDisplay": undefined,
   "decimalSymbol": ",",
   "digits": Array [
     "0",
@@ -200,12 +213,14 @@ NumberFormat {
   "style": "currency",
   "suffix": " €",
   "unit": undefined,
+  "unitDisplay": undefined,
 }
 `;
 
 exports[`NumberFormat constructing number formats currency should work for the respective locale and currency: es-ES_EUR 2`] = `
 NumberFormat {
   "currency": "EUR",
+  "currencyDisplay": undefined,
   "decimalSymbol": ",",
   "digits": Array [
     "0",
@@ -229,12 +244,14 @@ NumberFormat {
   "style": "currency",
   "suffix": " €",
   "unit": undefined,
+  "unitDisplay": undefined,
 }
 `;
 
 exports[`NumberFormat constructing number formats currency should work for the respective locale and currency: fa-IR_IRR 1`] = `
 NumberFormat {
   "currency": "IRR",
+  "currencyDisplay": undefined,
   "decimalSymbol": undefined,
   "digits": Array [
     "۰",
@@ -258,12 +275,14 @@ NumberFormat {
   "style": "currency",
   "suffix": "",
   "unit": undefined,
+  "unitDisplay": undefined,
 }
 `;
 
 exports[`NumberFormat constructing number formats currency should work for the respective locale and currency: fr-CH_CHF 1`] = `
 NumberFormat {
   "currency": "CHF",
+  "currencyDisplay": undefined,
   "decimalSymbol": ".",
   "digits": Array [
     "0",
@@ -287,12 +306,14 @@ NumberFormat {
   "style": "currency",
   "suffix": " CHF",
   "unit": undefined,
+  "unitDisplay": undefined,
 }
 `;
 
 exports[`NumberFormat constructing number formats currency should work for the respective locale and currency: ja_JPY 1`] = `
 NumberFormat {
   "currency": "JPY",
+  "currencyDisplay": undefined,
   "decimalSymbol": undefined,
   "digits": Array [
     "0",
@@ -316,12 +337,14 @@ NumberFormat {
   "style": "currency",
   "suffix": "",
   "unit": undefined,
+  "unitDisplay": undefined,
 }
 `;
 
 exports[`NumberFormat constructing number formats currency should work for the respective locale and currency: nl-NL_EUR 1`] = `
 NumberFormat {
   "currency": "EUR",
+  "currencyDisplay": undefined,
   "decimalSymbol": ",",
   "digits": Array [
     "0",
@@ -345,12 +368,14 @@ NumberFormat {
   "style": "currency",
   "suffix": "",
   "unit": undefined,
+  "unitDisplay": undefined,
 }
 `;
 
 exports[`NumberFormat constructing number formats currency should work for the respective locale and currency: pt_BRL 1`] = `
 NumberFormat {
   "currency": "BRL",
+  "currencyDisplay": undefined,
   "decimalSymbol": ",",
   "digits": Array [
     "0",
@@ -374,12 +399,14 @@ NumberFormat {
   "style": "currency",
   "suffix": "",
   "unit": undefined,
+  "unitDisplay": undefined,
 }
 `;
 
 exports[`NumberFormat constructing number formats currency should work for the respective locale and currency: zh_CNY 1`] = `
 NumberFormat {
   "currency": "CNY",
+  "currencyDisplay": undefined,
   "decimalSymbol": ".",
   "digits": Array [
     "0",
@@ -403,12 +430,14 @@ NumberFormat {
   "style": "currency",
   "suffix": "",
   "unit": undefined,
+  "unitDisplay": undefined,
 }
 `;
 
 exports[`NumberFormat constructing number formats decimal de-DE 1`] = `
 NumberFormat {
   "currency": undefined,
+  "currencyDisplay": undefined,
   "decimalSymbol": ",",
   "digits": Array [
     "0",
@@ -432,12 +461,14 @@ NumberFormat {
   "style": "decimal",
   "suffix": "",
   "unit": undefined,
+  "unitDisplay": undefined,
 }
 `;
 
 exports[`NumberFormat constructing number formats unit de-DE 1`] = `
 NumberFormat {
   "currency": undefined,
+  "currencyDisplay": undefined,
   "decimalSymbol": ",",
   "digits": Array [
     "0",
@@ -461,5 +492,6 @@ NumberFormat {
   "style": "unit",
   "suffix": " Bytes",
   "unit": "byte",
+  "unitDisplay": undefined,
 }
 `;

@@ -1,5 +1,5 @@
 import { count, escapeRegExp, substringBefore } from './utils'
-import { NumberFormatStyle, NumberInputOptions } from './api'
+import { CurrencyDisplay, NumberFormatStyle, NumberInputOptions, UnitDisplay } from './api'
 import NumberFormatOptions = Intl.NumberFormatOptions
 
 export const DECIMAL_SEPARATORS = [',', '.', '٫']
@@ -9,7 +9,9 @@ export class NumberFormat {
   locale?: string
   style: NumberFormatStyle
   currency?: string
+  currencyDisplay?: CurrencyDisplay
   unit?: string
+  unitDisplay?: UnitDisplay
   digits: string[]
   decimalSymbol: string | undefined
   groupingSymbol: string
@@ -21,14 +23,23 @@ export class NumberFormat {
   suffix: string
 
   constructor(options: NumberInputOptions) {
-    const { formatStyle: style, currency, unit, locale, precision } = options
-    const numberFormat = new Intl.NumberFormat(locale, { currency, unit, style, minimumFractionDigits: style !== NumberFormatStyle.Currency ? 1 : undefined })
+    const { formatStyle: style, currency, currencyDisplay, unit, unitDisplay, locale, precision } = options
+    const numberFormat = new Intl.NumberFormat(locale, {
+      currency,
+      currencyDisplay,
+      unit,
+      unitDisplay,
+      style,
+      minimumFractionDigits: style !== NumberFormatStyle.Currency ? 1 : undefined
+    })
     const ps = numberFormat.format(style === NumberFormatStyle.Percent ? 1234.56 : 123456)
 
     this.locale = locale
     this.style = style
     this.currency = currency
+    this.currencyDisplay = currencyDisplay
     this.unit = unit
+    this.unitDisplay = unitDisplay
     this.digits = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9].map((i) => i.toLocaleString(locale))
     this.decimalSymbol = count(ps, this.digits[0]) ? ps.substr(ps.indexOf(this.digits[6]) + 1, 1) : undefined
     this.groupingSymbol = ps.substr(ps.indexOf(this.digits[3]) + 1, 1)
@@ -69,7 +80,14 @@ export class NumberFormat {
   }
 
   isValidIntegerFormat(formattedNumber: string, integerNumber: number): boolean {
-    const options = { style: this.style, currency: this.currency, unit: this.unit, minimumFractionDigits: 0 }
+    const options = {
+      style: this.style,
+      currency: this.currency,
+      currencyDisplay: this.currencyDisplay,
+      unit: this.unit,
+      unitDisplay: this.unitDisplay,
+      minimumFractionDigits: 0
+    }
     if (this.style === NumberFormatStyle.Percent) {
       integerNumber /= 100
     }
@@ -90,7 +108,9 @@ export class NumberFormat {
       ? new Intl.NumberFormat(this.locale, {
           style: this.style,
           currency: this.currency,
+          currencyDisplay: this.currencyDisplay,
           unit: this.unit,
+          unitDisplay: this.unitDisplay,
           ...options
         }).format(this.style === NumberFormatStyle.Percent ? value / 100 : value)
       : ''

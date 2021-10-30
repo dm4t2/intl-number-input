@@ -23,11 +23,26 @@ export enum NumberFormatStyle {
   Percent = 'percent'
 }
 
+export enum CurrencyDisplay {
+  Symbol = 'symbol',
+  NarrowSymbol = 'narrowSymbol',
+  Code = 'code',
+  Name = 'name'
+}
+
+export enum UnitDisplay {
+  Short = 'short',
+  Narrow = 'narrow',
+  Long = 'long'
+}
+
 export interface NumberInputOptions {
   locale?: string
   formatStyle: NumberFormatStyle
   currency?: string
+  currencyDisplay?: CurrencyDisplay
   unit?: string
+  unitDisplay?: UnitDisplay
   exportValueAsInteger?: boolean
   hidePrefixOrSuffixOnFocus?: boolean
   hideGroupingSeparatorOnFocus?: boolean
