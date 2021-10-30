@@ -232,9 +232,7 @@ export class NumberInput {
       this.focus = true
       setTimeout(() => {
         const { value, selectionStart, selectionEnd } = this.el
-        if (this.options.hideNegligibleDecimalDigitsOnFocus && value) {
-          this.format(value, true)
-        }
+        this.format(value, this.options.hideNegligibleDecimalDigitsOnFocus)
         if (selectionStart != null && selectionEnd != null && Math.abs(selectionStart - selectionEnd) > 0) {
           this.setCaretPosition(0, this.el.value.length)
         } else if (selectionStart != null) {
