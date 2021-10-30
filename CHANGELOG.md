@@ -1,5 +1,20 @@
 # Changelog
 
+## [1.1.0](https://www.github.com/dm4t2/intl-number-input/compare/v1.0.0...v1.1.0) (2021-10-30)
+
+
+### Features
+
+* add new options `currencyDisplay` and `unitDisplay` ([ce38d4e](https://www.github.com/dm4t2/intl-number-input/commit/ce38d4ec12a302258c6347f143d85e43477f62bf))
+
+
+### Bug Fixes
+
+* decimal/grouping separator not detected in percent format style ([bb81ba0](https://www.github.com/dm4t2/intl-number-input/commit/bb81ba03130a1ed4fee733cd181483ac110bdf7e))
+* prevent caret position from jumping to the end ([73904c2](https://www.github.com/dm4t2/intl-number-input/commit/73904c208db8e1ca982a209e29d5d175cb4aeeed))
+* prevent input of too large numbers ([9283033](https://www.github.com/dm4t2/intl-number-input/commit/928303320af0b670a731b6fd753e48904c1aac69))
+* set correct caret position on focus when using `autoDecimalDigits` ([549fa48](https://www.github.com/dm4t2/intl-number-input/commit/549fa484d59866429573e9cca0f757c3745b41b8))
+
 ## 1.0.0 (2021-10-16)
 
 
