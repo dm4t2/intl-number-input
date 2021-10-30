@@ -206,6 +206,10 @@ export class NumberInput {
               return newValueLength - caretPositionFromLeft - 1
             }
 
+            if (newValueLength < caretPositionFromLeft) {
+              return selectionStart
+            }
+
             if (decimalSymbol !== undefined && value.indexOf(decimalSymbol) !== -1) {
               const decimalSymbolPosition = value.indexOf(decimalSymbol) + 1
               if (Math.abs(newValueLength - value.length) > 1 && selectionStart <= decimalSymbolPosition) {
