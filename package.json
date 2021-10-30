@@ -32,7 +32,9 @@
     "test": "jest",
     "lint": "eslint --no-fix --max-warnings 0 {**/*,*}.{js,ts} && prettier --check {**/*,*}.{js,ts}",
     "prebuild": "rimraf dist",
-    "build": "tsc --emitDeclarationOnly --declaration --outDir dist/types && rollup -c rollup.config.js"
+    "build": "tsc --emitDeclarationOnly --declaration --outDir dist/types && rollup -c rollup.config.js",
+    "dev": "vitepress dev docs",
+    "docs": "vitepress build docs"
   },
   "devDependencies": {
     "@types/jest": "^26.0.23",
@@ -47,7 +49,14 @@
     "rollup": "^2.58.0",
     "rollup-plugin-dts": "^4.0.0",
     "rollup-plugin-typescript2": "^0.30.0",
+    "sass": "^1.37.5",
+    "stringify-object": "^3.3.0",
     "ts-jest": "^26.5.6",
-    "typescript": "^4.4.4"
+    "typescript": "^4.4.4",
+    "vite-plugin-components": "^0.8.4",
+    "vite-plugin-windicss": "^0.15.10",
+    "vitepress": "^0.20.0",
+    "vue": "^3.2.20",
+    "windicss": "^2.5.14"
   }
 }

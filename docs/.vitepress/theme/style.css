@@ -1,0 +1,26 @@
+:root {
+  --c-brand: #3182CE;
+  --c-brand-light: #4299E1;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  line-height: 1.5;
+}
+
+h2 {
+  @apply font-semibold mt-12 mb-4;
+
+  line-height: 1.25;
+  font-size: 1.65rem;
+}
+
+h3 {
+  @apply font-semibold mt-8;
+
+  font-size: 1.35rem;
+}
+
+.nav-bar-title {
+  @apply inline-flex items-center;
+}
