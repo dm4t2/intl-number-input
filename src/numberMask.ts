@@ -58,7 +58,7 @@ export class DefaultNumberMask extends AbstractNumberMask implements NumberMask 
   }
 }
 
-export class AutoDecimalModeNumberMask extends AbstractNumberMask implements NumberMask {
+export class AutoDecimalDigitsNumberMask extends AbstractNumberMask implements NumberMask {
   conformToMask(str: string, previousConformedValue = ''): string | { fractionDigits: string; numberValue: number } {
     if (
       str === '' ||
@@ -71,10 +71,10 @@ export class AutoDecimalModeNumberMask extends AbstractNumberMask implements Num
     const numberValue =
       this.numberFormat.stripMinusSymbol(str) === ''
         ? -0
-        : Number(`${negative ? '-' : ''}${removeLeadingZeros(this.numberFormat.onlyDigits(str))}`) / Math.pow(10, this.numberFormat.minimumFractionDigits)
+        : Number(`${negative ? '-' : ''}${removeLeadingZeros(this.numberFormat.onlyDigits(str))}`) / Math.pow(10, this.numberFormat.maximumFractionDigits)
     return {
       numberValue,
-      fractionDigits: numberValue.toFixed(this.numberFormat.minimumFractionDigits).slice(-this.numberFormat.minimumFractionDigits)
+      fractionDigits: numberValue.toFixed(this.numberFormat.maximumFractionDigits).slice(-this.numberFormat.maximumFractionDigits)
     }
   }
 }

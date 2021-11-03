@@ -1,5 +1,5 @@
 import { DECIMAL_SEPARATORS, NumberFormat } from './numberFormat'
-import { AutoDecimalModeNumberMask, DefaultNumberMask, NumberMask } from './numberMask'
+import { AutoDecimalDigitsNumberMask, DefaultNumberMask, NumberMask } from './numberMask'
 import { NumberFormatStyle, NumberInputConstructorArgs, NumberInputOptions, NumberInputValue } from './api'
 import { count } from './utils'
 
@@ -67,7 +67,7 @@ export class NumberInput {
       this.el.setAttribute('inputmode', 'decimal')
     }
     this.numberFormat = new NumberFormat(this.options)
-    this.numberMask = this.options.autoDecimalDigits ? new AutoDecimalModeNumberMask(this.numberFormat) : new DefaultNumberMask(this.numberFormat)
+    this.numberMask = this.options.autoDecimalDigits ? new AutoDecimalDigitsNumberMask(this.numberFormat) : new DefaultNumberMask(this.numberFormat)
     this.step = options.step && options.step > 0 ? Math.max(options.step, this.toFloat(1)) : this.toFloat(1)
     this.minValue = this.getMinValue()
     this.maxValue = this.getMaxValue()
