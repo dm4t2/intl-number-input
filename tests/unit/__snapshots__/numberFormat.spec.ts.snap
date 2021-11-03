@@ -465,6 +465,37 @@ NumberFormat {
 }
 `;
 
+exports[`NumberFormat constructing number formats percent de-DE 1`] = `
+NumberFormat {
+  "currency": undefined,
+  "currencyDisplay": undefined,
+  "decimalSymbol": ",",
+  "digits": Array [
+    "0",
+    "1",
+    "2",
+    "3",
+    "4",
+    "5",
+    "6",
+    "7",
+    "8",
+    "9",
+  ],
+  "groupingSymbol": ".",
+  "locale": "de-DE",
+  "maximumFractionDigits": 0,
+  "minimumFractionDigits": 0,
+  "minusSymbol": "-",
+  "negativePrefix": "-",
+  "prefix": "",
+  "style": "percent",
+  "suffix": " %",
+  "unit": undefined,
+  "unitDisplay": undefined,
+}
+`;
+
 exports[`NumberFormat constructing number formats unit de-DE 1`] = `
 NumberFormat {
   "currency": undefined,

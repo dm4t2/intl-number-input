@@ -69,11 +69,12 @@ export class NumberFormat {
       const fraction = this.decimalSymbol ? `(?:${escapeRegExp(this.decimalSymbol)}(\\d*))?` : ''
       const match = this.stripGroupingSeparator(str).match(new RegExp(`^${INTEGER_PATTERN}${fraction}$`))
       if (match && this.isValidIntegerFormat(this.decimalSymbol ? str.split(this.decimalSymbol)[0] : str, Number(match[1]))) {
-        let number = Number(`${negative ? '-' : ''}${this.onlyDigits(match[1])}.${this.onlyDigits(match[2] || '')}`)
+        const number = Number(`${negative ? '-' : ''}${this.onlyDigits(match[1])}.${this.onlyDigits(match[2] || '')}`)
         if (this.style === NumberFormatStyle.Percent) {
-          number /= 100
+          return Number((number / 100).toFixed(this.maximumFractionDigits + 2))
+        } else {
+          return number
         }
-        return number
       }
     }
     return null
