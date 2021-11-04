@@ -1,5 +1,13 @@
 # Changelog
 
+### [1.1.1](https://www.github.com/dm4t2/intl-number-input/compare/v1.1.0...v1.1.1) (2021-11-04)
+
+
+### Bug Fixes
+
+* **autoDecimalDigits:** use the maximumFractionDigits of the number format ([18cfb28](https://www.github.com/dm4t2/intl-number-input/commit/18cfb28da6152b815c8c6b2a4820c5175c1042c8))
+* **percent formatStyle:** parsing causes accuracy issues with higher precisions ([2b2f8c3](https://www.github.com/dm4t2/intl-number-input/commit/2b2f8c3bde1316d2b20d9a287bd0c1d7b9465af6))
+
 ## [1.1.0](https://www.github.com/dm4t2/intl-number-input/compare/v1.0.0...v1.1.0) (2021-10-30)
 
 
