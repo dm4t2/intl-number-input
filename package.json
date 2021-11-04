@@ -1,7 +1,7 @@
 {
   "name": "intl-number-input",
   "description": "Easy input of formatted numbers based on the ECMAScript Internationalization API (ECMA-402).",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "license": "MIT",
   "module": "./dist/index.esm.js",
   "main": "./dist/index.cjs.js",
