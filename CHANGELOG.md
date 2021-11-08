@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.2.0](https://www.github.com/dm4t2/intl-number-input/compare/v1.1.1...v1.2.0) (2021-11-08)
+
+
+### Features
+
+* **formatStyle:** use decimal as default ([b87cd94](https://www.github.com/dm4t2/intl-number-input/commit/b87cd947f18edd5d08105e3dcbaaae918de285c4))
+* support precision range ([#5](https://www.github.com/dm4t2/intl-number-input/issues/5)) ([3bdc5c4](https://www.github.com/dm4t2/intl-number-input/commit/3bdc5c41fd6d610c859019c8a75f62bbbd729720))
+
 ### [1.1.1](https://www.github.com/dm4t2/intl-number-input/compare/v1.1.0...v1.1.1) (2021-11-04)
 
 
