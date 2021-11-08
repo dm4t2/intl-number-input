@@ -2,11 +2,11 @@
 
 The following options can be passed as an object literal to the `NumberInput` constructor.
 
-### locale
+## locale
 
 A [BCP 47](https://tools.ietf.org/html/bcp47) language tag (for example `"en"` or `"de-DE"`). Default is `undefined` (use the default locale of the Browser).
 
-### formatStyle
+## formatStyle
 
 The formatting style to use. Possible values are:
 
@@ -15,11 +15,11 @@ The formatting style to use. Possible values are:
 - `"percent"` for percent formatting
 - `"unit"` for unit formatting
 
-### currency
+## currency
 
 A [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) currency code, for example `"USD"` or `"EUR"`, which is required when using `"currency"` as `formatStyle`.
 
-### currencyDisplay
+## currencyDisplay
 
 How to display the currency when using `"currency"` as `formatStyle`. Possible values are:
 
@@ -28,11 +28,11 @@ How to display the currency when using `"currency"` as `formatStyle`. Possible v
 - `"code"` to use the ISO currency code
 - `"name"` to use a localized currency name such as "dollar"
 
-### unit
+## unit
 
 A [unit identifier](https://tc39.es/proposal-unified-intl-numberformat/section6/locales-currencies-tz_proposed_out.html#sec-issanctionedsimpleunitidentifier), which is required when using `"unit"` as `formatStyle`. Pairs of simple units can be concatenated with "-per-" to make a compound unit.
 
-### unitDisplay
+## unitDisplay
 
 How to display the unit when using `"unit"` as `formatStyle`. Possible values are:
 
@@ -40,38 +40,38 @@ How to display the unit when using `"unit"` as `formatStyle`. Possible values ar
 - `"narrow"` (for example "1024 byte")
 - `"long"` (for example "1024 bytes")
 
-### precision
+## precision
 
-The number of displayed decimal digits. Default is `undefined` (use the default of the `formatStyle`, decimal digits will be hidden for integer numbers). Must be between 0 and 15.
+The number of displayed decimal digits. Default is `undefined` (use the default of the `formatStyle`, decimal digits will be hidden for integer numbers). Must be between 0 and 15. You can also pass an object `{min, max}` to use a precision range.
 
-### autoDecimalDigits
+## autoDecimalDigits
 
 Whether the decimal symbol is inserted automatically, using the last inputted digits as decimal digits. Default is `false` (the decimal symbol needs to be inserted manually).
 
-### hidePrefixOrSuffixOnFocus
+## hidePrefixOrSuffixOnFocus
 
 Whether to hide the prefix or suffix on focus. Default is `true`.
 
-### hideGroupingSeparatorOnFocus
+## hideGroupingSeparatorOnFocus
 
 Whether to hide the grouping separator on focus. Default is `true`.
 
-### hideNegligibleDecimalDigitsOnFocus
+## hideNegligibleDecimalDigitsOnFocus
 
 Whether to hide negligible decimal digits on focus. Default is `true`.
 
-### exportValueAsInteger
+## exportValueAsInteger
 
 Whether the number value should be exported as integer instead of float value. Default is `false`.
 
-### valueRange
+## valueRange
 
 The range of accepted values as object `{min, max}`. Default is `undefined` (no value range). The validation is triggered on blur and automatically sets the respective threshold if out of range.
 
-### autoSign
+## autoSign
 
 Whether the minus symbol is automatically inserted or prevented to be inputted depending on the configured `valueRange`. Default is `true`.
 
-### useGrouping
+## useGrouping
 
 Whether to use grouping separators such as thousands/lakh/crore separators.

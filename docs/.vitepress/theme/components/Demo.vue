@@ -1,10 +1,6 @@
 <template>
   <div class="grid gap-y-4 md:grid-cols-2 md:gap-x-8 items-center my-8">
-    <NumberInput
-      v-model="value"
-      :options="options"
-      class="block w-full transition-all rounded-md shadow-sm focus:border-primary focus:ring focus:ring-primary focus:ring-opacity-50"
-    />
+    <NumberInput v-model="value" :options="options" class="form-input" />
     <div>
       Number value: <code class="ml-2">{{ value != null ? value : 'null' }}</code>
     </div>
@@ -40,97 +36,32 @@
   <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8">
     <div>
       <OptionSection v-model="localeEnabled" label="Locale">
-        <select
-          v-model="locale"
-          :disabled="!localeEnabled"
-          class="
-            cursor-pointer
-            transition-all
-            w-full
-            shadow-sm
-            disabled:(cursor-not-allowed
-            border-gray-300
-            text-gray-300)
-            rounded-md
-            text-base
-            focus:border-primary focus:ring focus:ring-offset-0 focus:ring-primary focus:ring-opacity-50
-          "
-        >
+        <select v-model="locale" :disabled="!localeEnabled" class="form-input form-select">
           <option v-for="locale in locales" :key="locale">{{ locale }}</option>
         </select>
       </OptionSection>
       <OptionSection label="Format Style">
-        <select
-          v-model="formatStyle"
-          class="
-            cursor-pointer
-            w-full
-            shadow-sm
-            rounded-lg
-            text-base
-            focus:border-primary focus:ring focus:ring-offset-0 focus:ring-primary focus:ring-opacity-50
-          "
-        >
+        <select v-model="formatStyle" class="form-input form-select">
           <option v-for="formatStyle in formatStyleOptions" :key="formatStyle.value" :value="formatStyle.value">{{ formatStyle.label }}</option>
         </select>
       </OptionSection>
       <OptionSection v-if="formatStyle === 'currency'" label="Currency">
-        <select
-          v-model="currency"
-          class="
-            cursor-pointer
-            w-full
-            shadow-sm
-            rounded-lg
-            text-base
-            focus:border-primary focus:ring focus:ring-offset-0 focus:ring-primary focus:ring-opacity-50
-          "
-        >
+        <select v-model="currency" class="form-input form-select">
           <option v-for="currency in currencies" :key="currency">{{ currency }}</option>
         </select>
       </OptionSection>
       <OptionSection v-if="formatStyle === 'currency'" label="Currency Display" description="How to display the currency in the formatting.">
-        <select
-          v-model="currencyDisplay"
-          class="
-            cursor-pointer
-            w-full
-            shadow-sm
-            rounded-lg
-            text-base
-            focus:border-primary focus:ring focus:ring-offset-0 focus:ring-primary focus:ring-opacity-50
-          "
-        >
+        <select v-model="currencyDisplay" class="form-input form-select">
           <option v-for="currencyDisplay in currencyDisplays" :key="currencyDisplay.value" :value="currencyDisplay.value">{{ currencyDisplay.label }}</option>
         </select>
       </OptionSection>
       <OptionSection v-if="formatStyle === 'unit'" label="Unit">
-        <select
-          v-model="unit"
-          class="
-            cursor-pointer
-            w-full
-            shadow-sm
-            rounded-lg
-            text-base
-            focus:border-primary focus:ring focus:ring-offset-0 focus:ring-primary focus:ring-opacity-50
-          "
-        >
+        <select v-model="unit" class="form-input form-select">
           <option v-for="unit in units" :key="unit">{{ unit }}</option>
         </select>
       </OptionSection>
       <OptionSection v-if="formatStyle === 'unit'" label="Unit Display" description="How to display the unit in the formatting.">
-        <select
-          v-model="unitDisplay"
-          class="
-            cursor-pointer
-            w-full
-            shadow-sm
-            rounded-lg
-            text-base
-            focus:border-primary focus:ring focus:ring-offset-0 focus:ring-primary focus:ring-opacity-50
-          "
-        >
+        <select v-model="unitDisplay" class="form-input form-select">
           <option v-for="unitDisplay in unitDisplays" :key="unitDisplay.value" :value="unitDisplay.value">{{ unitDisplay.label }}</option>
         </select>
       </OptionSection>
@@ -153,45 +84,26 @@
         description="The validation is triggered on blur and automatically sets the respective threshold if out of range."
       >
         <div class="flex items-center space-x-4">
-          <input
-            v-model.number="minValue"
-            :disabled="!valueRangeEnabled"
-            type="number"
-            placeholder="Min"
-            class="
-              min-w-0
-              flex-1
-              shadow-sm
-              disabled:(opacity-50
-              cursor-not-allowed)
-              rounded-md
-              text-base
-              focus:border-primary focus:ring focus:ring-offset-0 focus:ring-primary focus:ring-opacity-50
-            "
-          />
+          <input v-model.number="minValue" :disabled="!valueRangeEnabled" type="number" placeholder="Min" class="form-input min-w-0" />
           <span class="text-center">to</span>
-          <input
-            v-model.number="maxValue"
-            :disabled="!valueRangeEnabled"
-            type="number"
-            placeholder="Max"
-            class="
-              min-w-0
-              flex-1
-              shadow-sm
-              disabled:(opacity-50
-              cursor-not-allowed)
-              rounded-md
-              text-base
-              focus:border-primary focus:ring focus:ring-offset-0 focus:ring-primary focus:ring-opacity-50
-            "
-          />
+          <input v-model.number="maxValue" :disabled="!valueRangeEnabled" type="number" placeholder="Max" class="form-input min-w-0" />
         </div>
       </OptionSection>
       <OptionSection v-model="precisionEnabled" label="Precision" description="Override the number of displayed decimal digits.">
-        <div class="flex items-center">
-          <Slider v-model.number="precision" :disabled="!precisionEnabled" />
-          <code :value="precision" class="w-10 ml-4 text-center"> {{ precision }}</code>
+        <div>
+          <Checkbox v-model="precisionRangeEnabled" label="Use range" :disabled="!precisionEnabled" class="mb-2" />
+          <div v-if="precisionRangeEnabled" class="flex items-center space-x-4">
+            <select v-model="precisionRangeMinValue" :disabled="!precisionEnabled" class="form-input form-select">
+              <option v-for="value in precisionRangeMinOptions" :key="value" :value="value">{{ value }}</option>
+            </select>
+            <span class="text-center">to</span>
+            <select v-model="precisionRangeMaxValue" :disabled="!precisionEnabled" class="form-input form-select">
+              <option v-for="value in precisionRangeMaxOptions" :key="value" :value="value">{{ value }}</option>
+            </select>
+          </div>
+          <select v-else v-model="precision" :disabled="!precisionEnabled" class="form-input form-select">
+            <option v-for="value in precisionOptions" :key="value" :value="value">{{ value }}</option>
+          </select>
         </div>
       </OptionSection>
       <OptionSection
@@ -214,13 +126,16 @@ import Dialog from './Dialog.vue'
 import stringifyObject from 'stringify-object'
 import OptionSection from './OptionSection.vue'
 import Checkbox from './Checkbox.vue'
-import Slider from './Slider.vue'
 import NumberInput from './NumberInput.vue'
 
 export default defineComponent({
   name: 'Demo',
-  components: { NumberInput, Slider, Checkbox, OptionSection, Dialog },
+  components: { NumberInput, Checkbox, OptionSection, Dialog },
   setup() {
+    const range = (from, to) =>
+      Array(to - from)
+        .fill(from)
+        .map((x, y) => x + y)
     const state: any = reactive({
       exportDialogVisible: false,
       value: 1234.5,
@@ -301,7 +216,13 @@ export default defineComponent({
       hideNegligibleDecimalDigitsOnFocusEnabled: true,
       hideNegligibleDecimalDigitsOnFocus: true,
       precisionEnabled: false,
+      precisionRangeEnabled: false,
+      precisionRangeMinValue: 2,
+      precisionRangeMaxValue: 5,
       precision: 2,
+      precisionOptions: computed(() => range(1, 16)),
+      precisionRangeMinOptions: computed(() => range(1, state.precisionRangeMaxValue + 1)),
+      precisionRangeMaxOptions: computed(() => range(state.precisionRangeMinValue, 16)),
       valueRangeEnabled: false,
       minValue: undefined,
       maxValue: undefined,
@@ -319,7 +240,11 @@ export default defineComponent({
           unit: state.formatStyle === 'unit' ? state.unit : undefined,
           unitDisplay: state.formatStyle === 'unit' ? state.unitDisplay : undefined,
           valueRange: state.valueRangeEnabled ? { min: state.minValue, max: state.maxValue } : undefined,
-          precision: state.precisionEnabled ? state.precision : undefined,
+          precision: state.precisionEnabled
+            ? state.precisionRangeEnabled
+              ? { min: state.precisionRangeMinValue, max: state.precisionRangeMaxValue }
+              : state.precision
+            : undefined,
           hidePrefixOrSuffixOnFocus: state.hidePrefixOrSuffixOnFocus,
           hideGroupingSeparatorOnFocus: state.hideGroupingSeparatorOnFocus,
           hideNegligibleDecimalDigitsOnFocus: state.hideNegligibleDecimalDigitsOnFocus,
