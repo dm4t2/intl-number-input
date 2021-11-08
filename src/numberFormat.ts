@@ -7,7 +7,7 @@ export const INTEGER_PATTERN = '(0|[1-9]\\d*)'
 
 export class NumberFormat {
   locale?: string
-  style: NumberFormatStyle
+  style?: NumberFormatStyle
   currency?: string
   currencyDisplay?: CurrencyDisplay
   unit?: string

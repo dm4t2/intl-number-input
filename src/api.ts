@@ -38,7 +38,7 @@ export enum UnitDisplay {
 
 export interface NumberInputOptions {
   locale?: string
-  formatStyle: NumberFormatStyle
+  formatStyle?: NumberFormatStyle
   currency?: string
   currencyDisplay?: CurrencyDisplay
   unit?: string
