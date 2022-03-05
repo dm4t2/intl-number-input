@@ -253,7 +253,7 @@ export class NumberInput {
             if (this.options.hidePrefixOrSuffixOnFocus) {
               result -= prefix.length
             }
-            if (this.options.hideGroupingSeparatorOnFocus) {
+            if (this.options.hideGroupingSeparatorOnFocus && groupingSymbol !== undefined) {
               result -= count(value.substring(0, selectionStart), groupingSymbol)
             }
             return result

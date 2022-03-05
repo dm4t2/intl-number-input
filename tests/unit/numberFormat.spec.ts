@@ -116,6 +116,14 @@ describe('NumberFormat', () => {
             currency: 'IRR'
           })
         ).toMatchSnapshot('fa-IR_IRR')
+
+        expect(
+          new NumberFormat({
+            formatStyle: NumberFormatStyle.Currency,
+            locale: 'bg-BG',
+            currency: 'BGN'
+          })
+        ).toMatchSnapshot('bg-BG_BGN')
       })
 
       describe('custom precision', () => {
@@ -124,9 +132,13 @@ describe('NumberFormat', () => {
             expect.objectContaining({ minimumFractionDigits: 0, maximumFractionDigits: 0 })
           )
 
-          expect(new NumberFormat({ formatStyle: NumberFormatStyle.Currency, currency: 'EUR', precision: { min: 2, max: 5 } })).toEqual(
-            expect.objectContaining({ minimumFractionDigits: 2, maximumFractionDigits: 5 })
-          )
+          expect(
+            new NumberFormat({
+              formatStyle: NumberFormatStyle.Currency,
+              currency: 'EUR',
+              precision: { min: 2, max: 5 }
+            })
+          ).toEqual(expect.objectContaining({ minimumFractionDigits: 2, maximumFractionDigits: 5 }))
         })
 
         it('should ignore the custom precision if the locale does not support decimal digits', () => {

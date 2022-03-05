@@ -1,4 +1,4 @@
-import { count, escapeRegExp, substringBefore } from './utils'
+import { escapeRegExp, substringBefore } from './utils'
 import { CurrencyDisplay, NumberFormatStyle, NumberInputOptions, UnitDisplay } from './api'
 import NumberFormatOptions = Intl.NumberFormatOptions
 
@@ -14,7 +14,7 @@ export class NumberFormat {
   unitDisplay?: UnitDisplay
   digits: string[]
   decimalSymbol: string | undefined
-  groupingSymbol: string
+  groupingSymbol: string | undefined
   minusSymbol: string
   minimumFractionDigits: number
   maximumFractionDigits: number
@@ -32,7 +32,7 @@ export class NumberFormat {
       style,
       minimumFractionDigits: style !== NumberFormatStyle.Currency ? 1 : undefined
     })
-    const ps = numberFormat.format(style === NumberFormatStyle.Percent ? 1234.56 : 123456)
+    const formatParts = numberFormat.formatToParts(style === NumberFormatStyle.Percent ? 1234.56 : 123456)
 
     this.locale = locale
     this.style = style
@@ -41,8 +41,8 @@ export class NumberFormat {
     this.unit = unit
     this.unitDisplay = unitDisplay
     this.digits = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9].map((i) => i.toLocaleString(locale))
-    this.decimalSymbol = count(ps, this.digits[0]) ? ps.substr(ps.indexOf(this.digits[6]) + 1, 1) : undefined
-    this.groupingSymbol = ps.substr(ps.indexOf(this.digits[3]) + 1, 1)
+    this.decimalSymbol = formatParts.find(({ type }) => type === 'decimal')?.value
+    this.groupingSymbol = formatParts.find(({ type }) => type === 'group')?.value
     this.minusSymbol = substringBefore(Number(-1).toLocaleString(locale), this.digits[1])
 
     if (this.decimalSymbol === undefined) {
@@ -50,17 +50,20 @@ export class NumberFormat {
     } else if (typeof precision === 'number') {
       this.minimumFractionDigits = this.maximumFractionDigits = precision
     } else if (typeof precision === 'object') {
-      this.minimumFractionDigits = precision.min || 0
-      this.maximumFractionDigits = precision.max !== undefined ? precision.max : 15
+      this.minimumFractionDigits = precision.min ?? 0
+      this.maximumFractionDigits = precision.max ?? 15
     } else {
       const { maximumFractionDigits, minimumFractionDigits } = new Intl.NumberFormat(locale, { currency, unit, style }).resolvedOptions()
       this.minimumFractionDigits = minimumFractionDigits
       this.maximumFractionDigits = maximumFractionDigits
     }
 
-    this.prefix = substringBefore(ps, this.digits[1])
-    this.negativePrefix = substringBefore(numberFormat.format(-1), this.digits[1])
-    this.suffix = ps.substring(ps.lastIndexOf(this.decimalSymbol ? this.digits[0] : this.digits[6]) + 1)
+    const getPrefix = (str: string) => substringBefore(str, this.digits[1])
+    const getSuffix = (str: string) => str.substring(str.lastIndexOf(this.decimalSymbol ? this.digits[0] : this.digits[1]) + 1)
+
+    this.prefix = getPrefix(numberFormat.format(1))
+    this.suffix = getSuffix(numberFormat.format(1))
+    this.negativePrefix = getPrefix(numberFormat.format(-1))
   }
 
   parse(str: string | null): number | null {
@@ -137,7 +140,7 @@ export class NumberFormat {
   }
 
   stripGroupingSeparator(str: string): string {
-    return str.replace(new RegExp(escapeRegExp(this.groupingSymbol), 'g'), '')
+    return this.groupingSymbol !== undefined ? str.replace(new RegExp(escapeRegExp(this.groupingSymbol), 'g'), '') : str
   }
 
   stripMinusSymbol(str: string): string {
