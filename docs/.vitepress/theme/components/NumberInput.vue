@@ -4,7 +4,7 @@
 
 <script lang="ts">
 import { defineComponent, onMounted, Ref, ref, watch } from 'vue'
-import { NumberFormatStyle, NumberInput } from '../../../../src'
+import { NumberInput, NumberInputOptions } from '../../../../src'
 
 export default defineComponent({
   name: 'NumberInput',
@@ -18,19 +18,24 @@ export default defineComponent({
       required: true
     }
   },
-  setup(props, { emit }) {
+  setup(props, { emit, attrs }) {
     let numberInput: NumberInput
     const inputRef: Ref<HTMLInputElement | null> = ref(null)
+    const lazyModel = attrs.modelModifiers?.lazy
     onMounted(() => {
       if (inputRef.value) {
         numberInput = new NumberInput({
           el: inputRef.value,
-          options: {
-            formatStyle: NumberFormatStyle.Currency,
-            ...props.options
-          },
+          options: props.options as NumberInputOptions,
           onInput: (value) => {
-            emit('update:modelValue', value.number)
+            if (!lazyModel) {
+              emit('update:modelValue', value.number)
+            }
+          },
+          onChange: (value) => {
+            if (lazyModel) {
+              emit('update:modelValue', value.number)
+            }
           }
         })
         numberInput.setValue(props.modelValue)
@@ -40,7 +45,7 @@ export default defineComponent({
     watch(
       () => props.options,
       (options) => {
-        numberInput.setOptions(options)
+        numberInput.setOptions(options as NumberInputOptions)
       }
     )
 
