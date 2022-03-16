@@ -2,6 +2,20 @@ import { escapeRegExp, substringBefore } from './utils'
 import { CurrencyDisplay, NumberFormatStyle, NumberInputOptions, UnitDisplay } from './api'
 import NumberFormatOptions = Intl.NumberFormatOptions
 
+const getPrefix = (parts: Intl.NumberFormatPart[]) =>
+  parts
+    .slice(0, parts.map((p) => p.type).indexOf('integer'))
+    .map((p) => p.value)
+    .join('')
+
+const getSuffix = (parts: Intl.NumberFormatPart[]) => {
+  const types = parts.map((p) => p.type)
+  return parts
+    .slice(Math.max(types.lastIndexOf('integer'), types.indexOf('fraction')) + 1)
+    .map((p) => p.value)
+    .join('')
+}
+
 export const DECIMAL_SEPARATORS = [',', '.', '٫']
 export const INTEGER_PATTERN = '(0|[1-9]\\d*)'
 
@@ -20,18 +34,20 @@ export class NumberFormat {
   maximumFractionDigits: number
   prefix: string
   negativePrefix: string
-  suffix: string
+  suffix: string[]
 
   constructor(options: NumberInputOptions) {
+    const createNumberFormat = (options: Intl.NumberFormatOptions) =>
+      new Intl.NumberFormat(locale, {
+        currency,
+        currencyDisplay,
+        unit,
+        unitDisplay,
+        style,
+        ...options
+      })
     const { formatStyle: style, currency, currencyDisplay, unit, unitDisplay, locale, precision } = options
-    const numberFormat = new Intl.NumberFormat(locale, {
-      currency,
-      currencyDisplay,
-      unit,
-      unitDisplay,
-      style,
-      minimumFractionDigits: style !== NumberFormatStyle.Currency ? 1 : undefined
-    })
+    const numberFormat = createNumberFormat({ minimumFractionDigits: style !== NumberFormatStyle.Currency ? 1 : undefined })
     const formatParts = numberFormat.formatToParts(style === NumberFormatStyle.Percent ? 1234.56 : 123456)
 
     this.locale = locale
@@ -58,12 +74,9 @@ export class NumberFormat {
       this.maximumFractionDigits = maximumFractionDigits
     }
 
-    const getPrefix = (str: string) => substringBefore(str, this.digits[1])
-    const getSuffix = (str: string) => str.substring(str.lastIndexOf(this.decimalSymbol ? this.digits[0] : this.digits[1]) + 1)
-
-    this.prefix = getPrefix(numberFormat.format(1))
-    this.suffix = getSuffix(numberFormat.format(1))
-    this.negativePrefix = getPrefix(numberFormat.format(-1))
+    this.prefix = getPrefix(numberFormat.formatToParts(1))
+    this.suffix = [getSuffix(createNumberFormat({ minimumFractionDigits: 0 }).formatToParts(1)), getSuffix(numberFormat.formatToParts(2))]
+    this.negativePrefix = getPrefix(numberFormat.formatToParts(-1))
   }
 
   parse(str: string | null): number | null {
@@ -99,8 +112,22 @@ export class NumberFormat {
       integerNumber /= 100
     }
     return [
-      this.stripPrefixOrSuffix(this.normalizeDigits(integerNumber.toLocaleString(this.locale, { ...options, useGrouping: true }))),
-      this.stripPrefixOrSuffix(this.normalizeDigits(integerNumber.toLocaleString(this.locale, { ...options, useGrouping: false })))
+      this.stripPrefixOrSuffix(
+        this.normalizeDigits(
+          integerNumber.toLocaleString(this.locale, {
+            ...options,
+            useGrouping: true
+          })
+        )
+      ),
+      this.stripPrefixOrSuffix(
+        this.normalizeDigits(
+          integerNumber.toLocaleString(this.locale, {
+            ...options,
+            useGrouping: false
+          })
+        )
+      )
     ].includes(formattedNumber)
   }
 
@@ -136,7 +163,7 @@ export class NumberFormat {
   }
 
   insertPrefixOrSuffix(str: string, negative: boolean): string {
-    return `${negative ? this.negativePrefix : this.prefix}${str}${this.suffix}`
+    return `${negative ? this.negativePrefix : this.prefix}${str}${this.suffix[1]}`
   }
 
   stripGroupingSeparator(str: string): string {
@@ -148,7 +175,7 @@ export class NumberFormat {
   }
 
   stripPrefixOrSuffix(str: string): string {
-    return str.replace(this.negativePrefix, '').replace(this.prefix, '').replace(this.suffix, '')
+    return str.replace(this.negativePrefix, '').replace(this.prefix, '').replace(this.suffix[1], '').replace(this.suffix[0], '')
   }
 
   normalizeDecimalSeparator(str: string, from: number): string {

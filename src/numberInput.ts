@@ -170,7 +170,8 @@ export class NumberInput {
         formattedValue = formattedValue
           .replace(this.numberFormat.negativePrefix, this.numberFormat.minusSymbol)
           .replace(this.numberFormat.prefix, '')
-          .replace(this.numberFormat.suffix, '')
+          .replace(this.numberFormat.suffix[1], '')
+          .replace(this.numberFormat.suffix[0], '')
       }
 
       this.el.value = formattedValue
@@ -222,9 +223,15 @@ export class NumberInput {
                 }
               }
             }
-            return this.options.hidePrefixOrSuffixOnFocus
-              ? newValueLength - caretPositionFromLeft
-              : Math.max(newValueLength - Math.max(caretPositionFromLeft, suffix.length), prefix.length)
+            if (this.options.hidePrefixOrSuffixOnFocus) {
+              return newValueLength - caretPositionFromLeft
+            } else {
+              const getSuffixLength = (str: string) => (str.includes(suffix[1]) ? suffix[1] : str.includes(suffix[0]) ? suffix[0] : '').length
+              const oldSuffixLength = getSuffixLength(value)
+              const newSuffixLength = getSuffixLength(this.formattedValue)
+              const suffixLengthDifference = Math.abs(newSuffixLength - oldSuffixLength)
+              return Math.max(newValueLength - Math.max(caretPositionFromLeft - suffixLengthDifference, newSuffixLength), prefix.length)
+            }
           }
           this.setCaretPosition(getCaretPositionAfterFormat())
         }
@@ -243,8 +250,9 @@ export class NumberInput {
           const getCaretPositionOnFocus = () => {
             const { prefix, suffix, groupingSymbol } = this.numberFormat
             if (!this.options.hidePrefixOrSuffixOnFocus) {
-              if (selectionStart >= value.length - suffix.length) {
-                return this.formattedValue.length - suffix.length
+              const suffixLength = suffix[this.numberValue === 1 ? 0 : 1].length
+              if (selectionStart >= value.length - suffixLength) {
+                return this.formattedValue.length - suffixLength
               } else if (selectionStart < prefix.length) {
                 return prefix.length
               }

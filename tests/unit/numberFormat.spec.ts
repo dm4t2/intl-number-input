@@ -1,5 +1,5 @@
 import { NumberFormat } from '../../src/numberFormat'
-import { NumberFormatStyle } from '../../src'
+import { CurrencyDisplay, NumberFormatStyle } from '../../src'
 
 describe('NumberFormat', () => {
   describe('constructing number formats', () => {
@@ -124,6 +124,17 @@ describe('NumberFormat', () => {
             currency: 'BGN'
           })
         ).toMatchSnapshot('bg-BG_BGN')
+      })
+
+      it('should work with pluralization', () => {
+        expect(
+          new NumberFormat({
+            formatStyle: NumberFormatStyle.Currency,
+            locale: 'en-US',
+            currency: 'EUR',
+            currencyDisplay: CurrencyDisplay.Name
+          })
+        ).toMatchSnapshot()
       })
 
       describe('custom precision', () => {

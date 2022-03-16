@@ -25,7 +25,10 @@ NumberFormat {
   "negativePrefix": "؜-",
   "prefix": "",
   "style": "currency",
-  "suffix": " ر.س.‏",
+  "suffix": Array [
+    " ر.س.‏",
+    " ر.س.‏",
+  ],
   "unit": undefined,
   "unitDisplay": undefined,
 }
@@ -56,7 +59,10 @@ NumberFormat {
   "negativePrefix": "-",
   "prefix": "",
   "style": "currency",
-  "suffix": " лв.",
+  "suffix": Array [
+    " лв.",
+    " лв.",
+  ],
   "unit": undefined,
   "unitDisplay": undefined,
 }
@@ -87,7 +93,10 @@ NumberFormat {
   "negativePrefix": "EUR-",
   "prefix": "EUR ",
   "style": "currency",
-  "suffix": "",
+  "suffix": Array [
+    "",
+    "",
+  ],
   "unit": undefined,
   "unitDisplay": undefined,
 }
@@ -118,7 +127,10 @@ NumberFormat {
   "negativePrefix": "-",
   "prefix": "",
   "style": "currency",
-  "suffix": " €",
+  "suffix": Array [
+    " €",
+    " €",
+  ],
   "unit": undefined,
   "unitDisplay": undefined,
 }
@@ -149,7 +161,10 @@ NumberFormat {
   "negativePrefix": "-£",
   "prefix": "£",
   "style": "currency",
-  "suffix": "",
+  "suffix": Array [
+    "",
+    "",
+  ],
   "unit": undefined,
   "unitDisplay": undefined,
 }
@@ -180,7 +195,10 @@ NumberFormat {
   "negativePrefix": "-₹",
   "prefix": "₹",
   "style": "currency",
-  "suffix": "",
+  "suffix": Array [
+    "",
+    "",
+  ],
   "unit": undefined,
   "unitDisplay": undefined,
 }
@@ -211,7 +229,10 @@ NumberFormat {
   "negativePrefix": "-$",
   "prefix": "$",
   "style": "currency",
-  "suffix": "",
+  "suffix": Array [
+    "",
+    "",
+  ],
   "unit": undefined,
   "unitDisplay": undefined,
 }
@@ -242,7 +263,10 @@ NumberFormat {
   "negativePrefix": "-",
   "prefix": "",
   "style": "currency",
-  "suffix": " €",
+  "suffix": Array [
+    " €",
+    " €",
+  ],
   "unit": undefined,
   "unitDisplay": undefined,
 }
@@ -273,7 +297,10 @@ NumberFormat {
   "negativePrefix": "-",
   "prefix": "",
   "style": "currency",
-  "suffix": " €",
+  "suffix": Array [
+    " €",
+    " €",
+  ],
   "unit": undefined,
   "unitDisplay": undefined,
 }
@@ -304,7 +331,10 @@ NumberFormat {
   "negativePrefix": "‎−‎ریال ",
   "prefix": "‎ریال ",
   "style": "currency",
-  "suffix": "",
+  "suffix": Array [
+    "",
+    "",
+  ],
   "unit": undefined,
   "unitDisplay": undefined,
 }
@@ -335,7 +365,10 @@ NumberFormat {
   "negativePrefix": "-",
   "prefix": "",
   "style": "currency",
-  "suffix": " CHF",
+  "suffix": Array [
+    " CHF",
+    " CHF",
+  ],
   "unit": undefined,
   "unitDisplay": undefined,
 }
@@ -366,7 +399,10 @@ NumberFormat {
   "negativePrefix": "-￥",
   "prefix": "￥",
   "style": "currency",
-  "suffix": "",
+  "suffix": Array [
+    "",
+    "",
+  ],
   "unit": undefined,
   "unitDisplay": undefined,
 }
@@ -397,7 +433,10 @@ NumberFormat {
   "negativePrefix": "€ -",
   "prefix": "€ ",
   "style": "currency",
-  "suffix": "",
+  "suffix": Array [
+    "",
+    "",
+  ],
   "unit": undefined,
   "unitDisplay": undefined,
 }
@@ -428,7 +467,10 @@ NumberFormat {
   "negativePrefix": "-R$ ",
   "prefix": "R$ ",
   "style": "currency",
-  "suffix": "",
+  "suffix": Array [
+    "",
+    "",
+  ],
   "unit": undefined,
   "unitDisplay": undefined,
 }
@@ -459,7 +501,44 @@ NumberFormat {
   "negativePrefix": "-¥",
   "prefix": "¥",
   "style": "currency",
-  "suffix": "",
+  "suffix": Array [
+    "",
+    "",
+  ],
+  "unit": undefined,
+  "unitDisplay": undefined,
+}
+`;
+
+exports[`NumberFormat constructing number formats currency should work with pluralization 1`] = `
+NumberFormat {
+  "currency": "EUR",
+  "currencyDisplay": "name",
+  "decimalSymbol": ".",
+  "digits": Array [
+    "0",
+    "1",
+    "2",
+    "3",
+    "4",
+    "5",
+    "6",
+    "7",
+    "8",
+    "9",
+  ],
+  "groupingSymbol": ",",
+  "locale": "en-US",
+  "maximumFractionDigits": 2,
+  "minimumFractionDigits": 2,
+  "minusSymbol": "-",
+  "negativePrefix": "-",
+  "prefix": "",
+  "style": "currency",
+  "suffix": Array [
+    " euro",
+    " euros",
+  ],
   "unit": undefined,
   "unitDisplay": undefined,
 }
@@ -490,7 +569,10 @@ NumberFormat {
   "negativePrefix": "-",
   "prefix": "",
   "style": "decimal",
-  "suffix": "",
+  "suffix": Array [
+    "",
+    "",
+  ],
   "unit": undefined,
   "unitDisplay": undefined,
 }
@@ -521,7 +603,10 @@ NumberFormat {
   "negativePrefix": "-",
   "prefix": "",
   "style": "percent",
-  "suffix": " %",
+  "suffix": Array [
+    " %",
+    " %",
+  ],
   "unit": undefined,
   "unitDisplay": undefined,
 }
@@ -552,7 +637,10 @@ NumberFormat {
   "negativePrefix": "-",
   "prefix": "",
   "style": "unit",
-  "suffix": " Bytes",
+  "suffix": Array [
+    " Byte",
+    " Byte",
+  ],
   "unit": "byte",
   "unitDisplay": undefined,
 }
