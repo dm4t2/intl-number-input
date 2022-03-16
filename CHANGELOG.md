@@ -1,5 +1,13 @@
 # Changelog
 
+### [1.2.1](https://www.github.com/dm4t2/intl-number-input/compare/v1.2.0...v1.2.1) (2022-03-16)
+
+
+### Bug Fixes
+
+* fix pluralization when using full currency/unit names ([fab0e93](https://www.github.com/dm4t2/intl-number-input/commit/fab0e93495ab741f37396f5d4aae6bb709d02b07))
+* improve detection of decimal/grouping separator ([291d841](https://www.github.com/dm4t2/intl-number-input/commit/291d841a09394924368e160b39cca167db2c1182))
+
 ## [1.2.0](https://www.github.com/dm4t2/intl-number-input/compare/v1.1.1...v1.2.0) (2021-11-08)
 
 
