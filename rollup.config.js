@@ -1,5 +1,4 @@
 import typescript from 'rollup-plugin-typescript2'
-import dts from 'rollup-plugin-dts'
 import pkg from './package.json'
 
 const banner = `/**
@@ -26,10 +25,5 @@ export default [
       }
     ],
     plugins: [typescript({ useTsconfigDeclarationDir: true })]
-  },
-  {
-    input: './dist/types/index.d.ts',
-    output: [{ file: './dist/index.d.ts', format: 'es' }],
-    plugins: [dts()]
   }
 ]

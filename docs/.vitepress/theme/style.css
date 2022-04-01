@@ -21,6 +21,10 @@ h3 {
   font-size: 1.35rem;
 }
 
+h4 {
+  @apply font-semibold mt-6;
+}
+
 .nav-bar-title {
   @apply inline-flex items-center;
 }

@@ -21,14 +21,12 @@ jobs:
         if: ${{ steps.release.outputs.release_created }}
       - run: yarn install --frozen-lockfile
         if: ${{ steps.release.outputs.release_created }}
-      - run: yarn docs
+      - run: yarn release
         if: ${{ steps.release.outputs.release_created }}
       - uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./docs/.vitepress/dist
-        if: ${{ steps.release.outputs.release_created }}
-      - run: yarn build
         if: ${{ steps.release.outputs.release_created }}
       - run: npm publish
         env:

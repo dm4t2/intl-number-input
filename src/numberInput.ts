@@ -3,6 +3,11 @@ import { AutoDecimalDigitsNumberMask, DefaultNumberMask, NumberMask } from './nu
 import { NumberFormatStyle, NumberInputConstructorArgs, NumberInputOptions, NumberInputValue } from './api'
 import { count } from './utils'
 
+/**
+ * The `NumberInput` class turns a `HTMLInputElement` into a number input field.
+ *
+ * @public
+ */
 export class NumberInput {
   private readonly el: HTMLInputElement
   private options!: NumberInputOptions
@@ -28,16 +33,29 @@ export class NumberInput {
     this.setValue(this.numberFormat.parse(this.el.value))
   }
 
+  /**
+   * Updates the options.
+   *
+   * @param options - The new options.
+   */
   setOptions(options: NumberInputOptions): void {
     this.init(options)
     this.applyFixedFractionFormat(this.numberValue, true)
   }
 
+  /**
+   * Gets the current value.
+   */
   getValue(): NumberInputValue {
     const numberValue = this.options.exportValueAsInteger && this.numberValue != null ? this.toInteger(this.numberValue) : this.numberValue
     return { number: numberValue, formatted: this.formattedValue }
   }
 
+  /**
+   * Sets a value programmatically.
+   *
+   * @param value - The new value.
+   */
   setValue(value: number | null): void {
     const newValue = this.options.exportValueAsInteger && value != null ? this.toFloat(value) : value
     if (newValue !== this.numberValue) {
@@ -45,10 +63,16 @@ export class NumberInput {
     }
   }
 
+  /**
+   * Increments the value by the configured {@link NumberInputOptions.step|step}.
+   */
   increment(): void {
     this.setValue((this.numberValue ?? 0) + this.step)
   }
 
+  /**
+   * Decrements the value by the configured {@link NumberInputOptions.step|step}.
+   */
   decrement(): void {
     this.setValue((this.numberValue ?? 0) - this.step)
   }

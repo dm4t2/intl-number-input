@@ -10,6 +10,16 @@ module.exports = {
     logo: '/favicon.png',
     nav: [
       {
+        text: 'Guide',
+        link: '/guide/',
+        activeMatch: '^/guide/'
+      },
+      {
+        text: 'API',
+        link: '/api/',
+        activeMatch: '^/api/'
+      },
+      {
         text: '❤ Sponsor',
         link: 'https://ko-fi.com/dm4t2'
       },
@@ -18,20 +28,12 @@ module.exports = {
         link: 'https://github.com/dm4t2/intl-number-input/releases'
       }
     ],
-    sidebar: [
-      {
-        text: 'Guide',
-        link: '/guide'
-      },
-      {
-        text: 'Config Reference',
-        link: '/config'
-      },
-      {
-        text: 'Playground',
-        link: '/playground'
-      }
-    ],
+    sidebar: {
+      '/guide/': [
+        { text: 'Introduction', link: '/guide/' },
+        { text: 'Playground', link: '/guide/playground' }
+      ]
+    },
     repo: 'dm4t2/intl-number-input',
     docsDir: 'docs'
   }

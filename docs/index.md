@@ -3,7 +3,7 @@ home: true
 heroText: Intl Number Input
 tagline: Easy input of formatted numbers
 actionText: Get Started
-actionLink: /guide
+actionLink: /guide/
 features:
   - title: Lightweight
     details: Tiny bundle size.

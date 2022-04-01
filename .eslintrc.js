@@ -3,6 +3,7 @@ module.exports = {
   env: {
     node: true
   },
+  plugins: ['@typescript-eslint/eslint-plugin', 'eslint-plugin-tsdoc'],
   ignorePatterns: ['dist/**', 'coverage/**'],
   extends: ['eslint:recommended', 'plugin:@typescript-eslint/recommended', 'prettier'],
   parserOptions: {

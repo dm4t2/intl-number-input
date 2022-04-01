@@ -1,6 +1,4 @@
-# Guide
-
-## Introduction
+# Introduction
 
 Intl Number Input allows an easy input of formatted numbers based on the [ECMAScript Internationalization API (Intl.NumberFormat)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat).
 
@@ -16,7 +14,7 @@ yarn add intl-number-input
 
 ## Usage
 
-Create a `NumberInput` instance, passing an `<input type="text">` element and the options of your choice.
+Create a `NumberInput` instance by passing an `<input type="text">` element and the [options](/api/intl-number-input.numberinputoptions) of your choice:
 
 ```javascript
 import { NumberInput } from 'intl-number-input'
@@ -24,7 +22,7 @@ import { NumberInput } from 'intl-number-input'
 const numberInput = new NumberInput({
   el: document.querySelector('input'),
   options: {
-    // see config reference
+    // see API reference
   }
 })
 
