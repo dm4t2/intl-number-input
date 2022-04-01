@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.3.0](https://www.github.com/dm4t2/intl-number-input/compare/v1.2.1...v1.3.0) (2022-04-01)
+
+
+### Features
+
+* add API docs ([108f843](https://www.github.com/dm4t2/intl-number-input/commit/108f8435dd9ddcb8fcf87362d9cea329d6037bdb))
+
 ### [1.2.1](https://www.github.com/dm4t2/intl-number-input/compare/v1.2.0...v1.2.1) (2022-03-16)
 
 
