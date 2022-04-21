@@ -1,0 +1,7 @@
+---
+sidebar: false
+---
+
+# Playground
+
+<Demo />
