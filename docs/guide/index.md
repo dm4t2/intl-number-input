@@ -30,4 +30,4 @@ const numberInput = new NumberInput({
 numberInput.setValue(1234)
 ```
 
-Edit example on [Stackblitz](https://stackblitz.com/edit/typescript-wzvyz7?file=index.ts).
+Edit example on [StackBlitz](https://stackblitz.com/edit/typescript-wzvyz7?file=index.ts).
