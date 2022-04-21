@@ -1,7 +1,7 @@
 [![Codecov](https://codecov.io/gh/dm4t2/intl-number-input/branch/master/graph/badge.svg)](https://codecov.io/gh/dm4t2/intl-number-input)
-![npm](https://img.shields.io/npm/v/intl-number-input)
-![npm bundle size](https://img.shields.io/bundlephobia/minzip/intl-number-input)
-![NPM](https://img.shields.io/npm/l/intl-number-input)
+[![npm version](https://img.shields.io/npm/v/intl-number-input)](https://www.npmjs.com/package/intl-number-input)
+[![Bundlephobia](https://img.shields.io/bundlephobia/minzip/intl-number-input)](https://bundlephobia.com/result?p=intl-number-input)
+[![License](https://img.shields.io/npm/l/intl-number-input)](https://github.com/dm4t2/intl-number-input/blob/master/LICENSE)
 
 # Intl Number Input
 
