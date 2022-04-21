@@ -14,7 +14,7 @@ yarn add intl-number-input
 
 ## Usage
 
-Create a `NumberInput` instance by passing an `<input type="text">` element and the [options](/api/intl-number-input.numberinputoptions) of your choice:
+Create a `NumberInput` instance by passing an `<input type="text">` element and the [options](/api/intl-number-input.numberinputoptions.html) of your choice:
 
 ```javascript
 import { NumberInput } from 'intl-number-input'
