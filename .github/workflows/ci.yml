@@ -1,8 +1,8 @@
-name: Merge checks
+name: Continuous Integration
 on: [ push, pull_request ]
 jobs:
-  coverage:
-    name: Test coverage
+  code_coverage:
+    name: Code Coverage
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -12,15 +12,12 @@ jobs:
           node-version: '16'
       - name: Install dependencies
         run: yarn install --frozen-lockfile
-      - name: Run unit tests
+      - name: Run tests and collect coverage
         run: yarn test --coverage
-      - name: Codecov
-        uses: codecov/codecov-action@v2
-        with:
-          token: ${{ secrets.CODECOV_TOKEN }}
-          flags: unittests
-  lint:
-    name: Code style
+      - name: Upload report to Codecov
+        uses: codecov/codecov-action@v3
+  eslint:
+    name: ESLint
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -30,6 +27,5 @@ jobs:
           node-version: '16'
       - name: Install dependencies
         run: yarn install --frozen-lockfile
-      - name: ESLint
+      - name: Run ESLint
         run: yarn eslint:check
-

@@ -1,6 +1,6 @@
+name: Docs
 on:
   workflow_dispatch
-name: Docs
 jobs:
   docs:
     runs-on: ubuntu-latest
