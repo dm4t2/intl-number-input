@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.3.1](https://github.com/dm4t2/intl-number-input/compare/v1.3.0...v1.3.1) (2022-10-24)
+
+
+### Bug Fixes
+
+* update bundle file extensions (closes [#15](https://github.com/dm4t2/intl-number-input/issues/15)) ([8eb38a3](https://github.com/dm4t2/intl-number-input/commit/8eb38a3c977150217954621eda2d5f00c2dc1a2c))
+
 ## [1.3.0](https://www.github.com/dm4t2/intl-number-input/compare/v1.2.1...v1.3.0) (2022-04-01)
 
 
