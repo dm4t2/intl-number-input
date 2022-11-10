@@ -1,11 +1,11 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1
 
-exports[`NumberFormat constructing number formats currency should work for the respective locale and currency: ar-SA_SAR 1`] = `
+exports[`NumberFormat > constructing number formats > currency > should work for the respective locale and currency > ar-SA_SAR 1`] = `
 NumberFormat {
   "currency": "SAR",
   "currencyDisplay": undefined,
   "decimalSymbol": "٫",
-  "digits": Array [
+  "digits": [
     "٠",
     "١",
     "٢",
@@ -25,7 +25,7 @@ NumberFormat {
   "negativePrefix": "؜-",
   "prefix": "",
   "style": "currency",
-  "suffix": Array [
+  "suffix": [
     " ر.س.‏",
     " ر.س.‏",
   ],
@@ -34,12 +34,12 @@ NumberFormat {
 }
 `;
 
-exports[`NumberFormat constructing number formats currency should work for the respective locale and currency: bg-BG_BGN 1`] = `
+exports[`NumberFormat > constructing number formats > currency > should work for the respective locale and currency > bg-BG_BGN 1`] = `
 NumberFormat {
   "currency": "BGN",
   "currencyDisplay": undefined,
   "decimalSymbol": ",",
-  "digits": Array [
+  "digits": [
     "0",
     "1",
     "2",
@@ -59,7 +59,7 @@ NumberFormat {
   "negativePrefix": "-",
   "prefix": "",
   "style": "currency",
-  "suffix": Array [
+  "suffix": [
     " лв.",
     " лв.",
   ],
@@ -68,12 +68,12 @@ NumberFormat {
 }
 `;
 
-exports[`NumberFormat constructing number formats currency should work for the respective locale and currency: de-CH_EUR 1`] = `
+exports[`NumberFormat > constructing number formats > currency > should work for the respective locale and currency > de-CH_EUR 1`] = `
 NumberFormat {
   "currency": "EUR",
   "currencyDisplay": undefined,
   "decimalSymbol": ".",
-  "digits": Array [
+  "digits": [
     "0",
     "1",
     "2",
@@ -93,7 +93,7 @@ NumberFormat {
   "negativePrefix": "EUR-",
   "prefix": "EUR ",
   "style": "currency",
-  "suffix": Array [
+  "suffix": [
     "",
     "",
   ],
@@ -102,12 +102,12 @@ NumberFormat {
 }
 `;
 
-exports[`NumberFormat constructing number formats currency should work for the respective locale and currency: de-DE_EUR 1`] = `
+exports[`NumberFormat > constructing number formats > currency > should work for the respective locale and currency > de-DE_EUR 1`] = `
 NumberFormat {
   "currency": "EUR",
   "currencyDisplay": undefined,
   "decimalSymbol": ",",
-  "digits": Array [
+  "digits": [
     "0",
     "1",
     "2",
@@ -127,7 +127,7 @@ NumberFormat {
   "negativePrefix": "-",
   "prefix": "",
   "style": "currency",
-  "suffix": Array [
+  "suffix": [
     " €",
     " €",
   ],
@@ -136,12 +136,12 @@ NumberFormat {
 }
 `;
 
-exports[`NumberFormat constructing number formats currency should work for the respective locale and currency: en-GB_GBP 1`] = `
+exports[`NumberFormat > constructing number formats > currency > should work for the respective locale and currency > en-GB_GBP 1`] = `
 NumberFormat {
   "currency": "GBP",
   "currencyDisplay": undefined,
   "decimalSymbol": ".",
-  "digits": Array [
+  "digits": [
     "0",
     "1",
     "2",
@@ -161,7 +161,7 @@ NumberFormat {
   "negativePrefix": "-£",
   "prefix": "£",
   "style": "currency",
-  "suffix": Array [
+  "suffix": [
     "",
     "",
   ],
@@ -170,12 +170,12 @@ NumberFormat {
 }
 `;
 
-exports[`NumberFormat constructing number formats currency should work for the respective locale and currency: en-IN_INR 1`] = `
+exports[`NumberFormat > constructing number formats > currency > should work for the respective locale and currency > en-IN_INR 1`] = `
 NumberFormat {
   "currency": "INR",
   "currencyDisplay": undefined,
   "decimalSymbol": ".",
-  "digits": Array [
+  "digits": [
     "0",
     "1",
     "2",
@@ -195,7 +195,7 @@ NumberFormat {
   "negativePrefix": "-₹",
   "prefix": "₹",
   "style": "currency",
-  "suffix": Array [
+  "suffix": [
     "",
     "",
   ],
@@ -204,12 +204,12 @@ NumberFormat {
 }
 `;
 
-exports[`NumberFormat constructing number formats currency should work for the respective locale and currency: en-US_USD 1`] = `
+exports[`NumberFormat > constructing number formats > currency > should work for the respective locale and currency > en-US_USD 1`] = `
 NumberFormat {
   "currency": "USD",
   "currencyDisplay": undefined,
   "decimalSymbol": ".",
-  "digits": Array [
+  "digits": [
     "0",
     "1",
     "2",
@@ -229,7 +229,7 @@ NumberFormat {
   "negativePrefix": "-$",
   "prefix": "$",
   "style": "currency",
-  "suffix": Array [
+  "suffix": [
     "",
     "",
   ],
@@ -238,12 +238,12 @@ NumberFormat {
 }
 `;
 
-exports[`NumberFormat constructing number formats currency should work for the respective locale and currency: es-ES_EUR 1`] = `
+exports[`NumberFormat > constructing number formats > currency > should work for the respective locale and currency > es-ES_EUR 1`] = `
 NumberFormat {
   "currency": "EUR",
   "currencyDisplay": undefined,
   "decimalSymbol": ",",
-  "digits": Array [
+  "digits": [
     "0",
     "1",
     "2",
@@ -263,7 +263,7 @@ NumberFormat {
   "negativePrefix": "-",
   "prefix": "",
   "style": "currency",
-  "suffix": Array [
+  "suffix": [
     " €",
     " €",
   ],
@@ -272,12 +272,12 @@ NumberFormat {
 }
 `;
 
-exports[`NumberFormat constructing number formats currency should work for the respective locale and currency: es-ES_EUR 2`] = `
+exports[`NumberFormat > constructing number formats > currency > should work for the respective locale and currency > es-ES_EUR 2`] = `
 NumberFormat {
   "currency": "EUR",
   "currencyDisplay": undefined,
   "decimalSymbol": ",",
-  "digits": Array [
+  "digits": [
     "0",
     "1",
     "2",
@@ -297,7 +297,7 @@ NumberFormat {
   "negativePrefix": "-",
   "prefix": "",
   "style": "currency",
-  "suffix": Array [
+  "suffix": [
     " €",
     " €",
   ],
@@ -306,12 +306,12 @@ NumberFormat {
 }
 `;
 
-exports[`NumberFormat constructing number formats currency should work for the respective locale and currency: fa-IR_IRR 1`] = `
+exports[`NumberFormat > constructing number formats > currency > should work for the respective locale and currency > fa-IR_IRR 1`] = `
 NumberFormat {
   "currency": "IRR",
   "currencyDisplay": undefined,
   "decimalSymbol": undefined,
-  "digits": Array [
+  "digits": [
     "۰",
     "۱",
     "۲",
@@ -331,7 +331,7 @@ NumberFormat {
   "negativePrefix": "‎−‎ریال ",
   "prefix": "‎ریال ",
   "style": "currency",
-  "suffix": Array [
+  "suffix": [
     "",
     "",
   ],
@@ -340,12 +340,12 @@ NumberFormat {
 }
 `;
 
-exports[`NumberFormat constructing number formats currency should work for the respective locale and currency: fr-CH_CHF 1`] = `
+exports[`NumberFormat > constructing number formats > currency > should work for the respective locale and currency > fr-CH_CHF 1`] = `
 NumberFormat {
   "currency": "CHF",
   "currencyDisplay": undefined,
   "decimalSymbol": ".",
-  "digits": Array [
+  "digits": [
     "0",
     "1",
     "2",
@@ -365,7 +365,7 @@ NumberFormat {
   "negativePrefix": "-",
   "prefix": "",
   "style": "currency",
-  "suffix": Array [
+  "suffix": [
     " CHF",
     " CHF",
   ],
@@ -374,12 +374,12 @@ NumberFormat {
 }
 `;
 
-exports[`NumberFormat constructing number formats currency should work for the respective locale and currency: ja_JPY 1`] = `
+exports[`NumberFormat > constructing number formats > currency > should work for the respective locale and currency > ja_JPY 1`] = `
 NumberFormat {
   "currency": "JPY",
   "currencyDisplay": undefined,
   "decimalSymbol": undefined,
-  "digits": Array [
+  "digits": [
     "0",
     "1",
     "2",
@@ -399,7 +399,7 @@ NumberFormat {
   "negativePrefix": "-￥",
   "prefix": "￥",
   "style": "currency",
-  "suffix": Array [
+  "suffix": [
     "",
     "",
   ],
@@ -408,12 +408,12 @@ NumberFormat {
 }
 `;
 
-exports[`NumberFormat constructing number formats currency should work for the respective locale and currency: nl-NL_EUR 1`] = `
+exports[`NumberFormat > constructing number formats > currency > should work for the respective locale and currency > nl-NL_EUR 1`] = `
 NumberFormat {
   "currency": "EUR",
   "currencyDisplay": undefined,
   "decimalSymbol": ",",
-  "digits": Array [
+  "digits": [
     "0",
     "1",
     "2",
@@ -433,7 +433,7 @@ NumberFormat {
   "negativePrefix": "€ -",
   "prefix": "€ ",
   "style": "currency",
-  "suffix": Array [
+  "suffix": [
     "",
     "",
   ],
@@ -442,12 +442,12 @@ NumberFormat {
 }
 `;
 
-exports[`NumberFormat constructing number formats currency should work for the respective locale and currency: pt_BRL 1`] = `
+exports[`NumberFormat > constructing number formats > currency > should work for the respective locale and currency > pt_BRL 1`] = `
 NumberFormat {
   "currency": "BRL",
   "currencyDisplay": undefined,
   "decimalSymbol": ",",
-  "digits": Array [
+  "digits": [
     "0",
     "1",
     "2",
@@ -467,7 +467,7 @@ NumberFormat {
   "negativePrefix": "-R$ ",
   "prefix": "R$ ",
   "style": "currency",
-  "suffix": Array [
+  "suffix": [
     "",
     "",
   ],
@@ -476,12 +476,12 @@ NumberFormat {
 }
 `;
 
-exports[`NumberFormat constructing number formats currency should work for the respective locale and currency: zh_CNY 1`] = `
+exports[`NumberFormat > constructing number formats > currency > should work for the respective locale and currency > zh_CNY 1`] = `
 NumberFormat {
   "currency": "CNY",
   "currencyDisplay": undefined,
   "decimalSymbol": ".",
-  "digits": Array [
+  "digits": [
     "0",
     "1",
     "2",
@@ -501,7 +501,7 @@ NumberFormat {
   "negativePrefix": "-¥",
   "prefix": "¥",
   "style": "currency",
-  "suffix": Array [
+  "suffix": [
     "",
     "",
   ],
@@ -510,12 +510,12 @@ NumberFormat {
 }
 `;
 
-exports[`NumberFormat constructing number formats currency should work with pluralization 1`] = `
+exports[`NumberFormat > constructing number formats > currency > should work with pluralization 1`] = `
 NumberFormat {
   "currency": "EUR",
   "currencyDisplay": "name",
   "decimalSymbol": ".",
-  "digits": Array [
+  "digits": [
     "0",
     "1",
     "2",
@@ -535,7 +535,7 @@ NumberFormat {
   "negativePrefix": "-",
   "prefix": "",
   "style": "currency",
-  "suffix": Array [
+  "suffix": [
     " euro",
     " euros",
   ],
@@ -544,12 +544,12 @@ NumberFormat {
 }
 `;
 
-exports[`NumberFormat constructing number formats decimal de-DE 1`] = `
+exports[`NumberFormat > constructing number formats > decimal > de-DE 1`] = `
 NumberFormat {
   "currency": undefined,
   "currencyDisplay": undefined,
   "decimalSymbol": ",",
-  "digits": Array [
+  "digits": [
     "0",
     "1",
     "2",
@@ -569,7 +569,7 @@ NumberFormat {
   "negativePrefix": "-",
   "prefix": "",
   "style": "decimal",
-  "suffix": Array [
+  "suffix": [
     "",
     "",
   ],
@@ -578,12 +578,12 @@ NumberFormat {
 }
 `;
 
-exports[`NumberFormat constructing number formats percent de-DE 1`] = `
+exports[`NumberFormat > constructing number formats > percent > de-DE 1`] = `
 NumberFormat {
   "currency": undefined,
   "currencyDisplay": undefined,
   "decimalSymbol": ",",
-  "digits": Array [
+  "digits": [
     "0",
     "1",
     "2",
@@ -603,7 +603,7 @@ NumberFormat {
   "negativePrefix": "-",
   "prefix": "",
   "style": "percent",
-  "suffix": Array [
+  "suffix": [
     " %",
     " %",
   ],
@@ -612,12 +612,12 @@ NumberFormat {
 }
 `;
 
-exports[`NumberFormat constructing number formats unit de-DE 1`] = `
+exports[`NumberFormat > constructing number formats > unit > de-DE 1`] = `
 NumberFormat {
   "currency": undefined,
   "currencyDisplay": undefined,
   "decimalSymbol": ",",
-  "digits": Array [
+  "digits": [
     "0",
     "1",
     "2",
@@ -637,7 +637,7 @@ NumberFormat {
   "negativePrefix": "-",
   "prefix": "",
   "style": "unit",
-  "suffix": Array [
+  "suffix": [
     " Byte",
     " Byte",
   ],

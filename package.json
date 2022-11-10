@@ -29,9 +29,9 @@
     "ECMA-402"
   ],
   "scripts": {
-    "test": "jest",
-    "eslint:check": "eslint --no-fix --max-warnings 0 {**/*,*}.{js,ts}",
-    "eslint:fix": "eslint --max-warnings 0 {**/*,*}.{js,ts}",
+    "test": "vitest",
+    "coverage": "vitest run --coverage",
+    "lint": "eslint --no-fix --max-warnings 0 {**/*,*}.{js,ts}",
     "api:extract": "tsc --emitDeclarationOnly --declaration --outDir temp/types && api-extractor run --local",
     "api:docs": "node scripts/api-docs.js",
     "build:api": "run-s api:extract api:docs",
@@ -45,7 +45,6 @@
   "devDependencies": {
     "@microsoft/api-documenter": "^7.13.67",
     "@microsoft/api-extractor": "^7.18.18",
-    "@types/jest": "^26.0.23",
     "@types/stringify-object": "^3.3.1",
     "@typescript-eslint/eslint-plugin": "^5.20.0",
     "@typescript-eslint/parser": "^5.20.0",
@@ -53,8 +52,6 @@
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-tsdoc": "^0.2.16",
-    "jest": "^26.6.3",
-    "jest-environment-jsdom-fifteen": "^1.0.2",
     "npm-run-all": "^4.1.5",
     "prettier": "^2.3.1",
     "rimraf": "^3.0.2",
@@ -62,12 +59,15 @@
     "rollup-plugin-typescript2": "^0.30.0",
     "sass": "^1.32.0",
     "stringify-object": "^3.3.0",
-    "ts-jest": "^26.5.6",
     "typescript": "^4.4.4",
     "vite-plugin-components": "^0.8.4",
     "vite-plugin-windicss": "^0.15.10",
     "vitepress": "^0.22.3",
     "vue": "^3.2.20",
     "windicss": "^2.5.14"
+  },
+  "dependencies": {
+    "@vitest/coverage-c8": "^0.25.1",
+    "vitest": "^0.25.1"
   }
 }

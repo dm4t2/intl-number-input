@@ -13,7 +13,7 @@ jobs:
       - name: Install dependencies
         run: yarn install --frozen-lockfile
       - name: Run tests and collect coverage
-        run: yarn test --coverage
+        run: yarn coverage
       - name: Upload report to Codecov
         uses: codecov/codecov-action@v3
   eslint:
@@ -28,4 +28,4 @@ jobs:
       - name: Install dependencies
         run: yarn install --frozen-lockfile
       - name: Run ESLint
-        run: yarn eslint:check
+        run: yarn lint
