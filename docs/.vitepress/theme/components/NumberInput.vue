@@ -1,5 +1,8 @@
 <template>
-  <input type="text" ref="inputRef" />
+  <input
+    ref="inputRef"
+    type="text"
+  />
 </template>
 
 <script lang="ts">
@@ -18,6 +21,7 @@ export default defineComponent({
       required: true
     }
   },
+  emits: ['update:modelValue'],
   setup(props, { emit, attrs }) {
     let numberInput: NumberInput
     const inputRef: Ref<HTMLInputElement | null> = ref(null)
