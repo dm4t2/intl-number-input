@@ -24,6 +24,7 @@ export enum NumberFormatStyle {
 export class NumberInput {
     constructor(args: NumberInputConstructorArgs);
     decrement(): void;
+    destroy(): void;
     getValue(): NumberInputValue;
     increment(): void;
     setOptions(options: NumberInputOptions): void;

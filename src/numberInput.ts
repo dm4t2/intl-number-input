@@ -10,10 +10,11 @@ import { count } from './utils'
  */
 export class NumberInput {
   private readonly el: HTMLInputElement
+  private readonly onInput?: (value: NumberInputValue) => void
+  private readonly onChange?: (value: NumberInputValue) => void
+  private numberValue!: number | null
+  private numberValueOnFocus!: number | null
   private options!: NumberInputOptions
-  private onInput?(value: NumberInputValue): void
-  private onChange?(value: NumberInputValue): void
-  private numberValue: number | null
   private numberFormat!: NumberFormat
   private decimalSymbolInsertedAt?: number
   private numberMask!: NumberMask
@@ -23,14 +24,29 @@ export class NumberInput {
   private minValue!: number
   private maxValue!: number
 
+  /**
+   * Creates a new {@link NumberInput} instance.
+   *
+   * @param args - The number input settings.
+   */
   constructor(args: NumberInputConstructorArgs) {
     this.el = args.el
     this.onInput = args.onInput
     this.onChange = args.onChange
-    this.numberValue = null
-    this.addEventListener()
+    this.el.addEventListener('input', this.inputEventListener)
+    this.el.addEventListener('focus', this.focusEventListener)
+    this.el.addEventListener('blur', this.blurEventListener)
     this.init(args.options)
     this.setValue(this.numberFormat.parse(this.el.value))
+  }
+
+  /**
+   * Destroys a {@link NumberInput} instance, removing all event listeners.
+   */
+  destroy(): void {
+    this.el.removeEventListener('input', this.inputEventListener)
+    this.el.removeEventListener('focus', this.focusEventListener)
+    this.el.removeEventListener('blur', this.blurEventListener)
   }
 
   /**
@@ -208,105 +224,92 @@ export class NumberInput {
     this.onInput?.(this.getValue())
   }
 
-  private addEventListener(): void {
-    this.el.addEventListener(
-      'input',
-      (e) => {
-        const { value, selectionStart } = this.el
-        const inputEvent = e as InputEvent
-        if (selectionStart && inputEvent.data && DECIMAL_SEPARATORS.includes(inputEvent.data)) {
-          this.decimalSymbolInsertedAt = selectionStart - 1
+  private inputEventListener: EventListener = (e) => {
+    const { value, selectionStart } = this.el
+    const inputEvent = e as InputEvent
+    if (selectionStart && inputEvent.data && DECIMAL_SEPARATORS.includes(inputEvent.data)) {
+      this.decimalSymbolInsertedAt = selectionStart - 1
+    }
+    this.format(value)
+    if (this.focus && selectionStart != null) {
+      const getCaretPositionAfterFormat = () => {
+        const { prefix, suffix, decimalSymbol, maximumFractionDigits, groupingSymbol } = this.numberFormat
+
+        let caretPositionFromLeft = value.length - selectionStart
+        const newValueLength = this.formattedValue.length
+        if (
+          this.formattedValue.substring(selectionStart, 1) === groupingSymbol &&
+          count(this.formattedValue, groupingSymbol) === count(value, groupingSymbol) + 1
+        ) {
+          return newValueLength - caretPositionFromLeft - 1
         }
-        this.format(value)
-        if (this.focus && selectionStart != null) {
-          const getCaretPositionAfterFormat = () => {
-            const { prefix, suffix, decimalSymbol, maximumFractionDigits, groupingSymbol } = this.numberFormat
 
-            let caretPositionFromLeft = value.length - selectionStart
-            const newValueLength = this.formattedValue.length
-            if (
-              this.formattedValue.substr(selectionStart, 1) === groupingSymbol &&
-              count(this.formattedValue, groupingSymbol) === count(value, groupingSymbol) + 1
-            ) {
-              return newValueLength - caretPositionFromLeft - 1
-            }
+        if (newValueLength < caretPositionFromLeft) {
+          return selectionStart
+        }
 
-            if (newValueLength < caretPositionFromLeft) {
-              return selectionStart
-            }
-
-            if (decimalSymbol !== undefined && value.indexOf(decimalSymbol) !== -1) {
-              const decimalSymbolPosition = value.indexOf(decimalSymbol) + 1
-              if (Math.abs(newValueLength - value.length) > 1 && selectionStart <= decimalSymbolPosition) {
-                return this.formattedValue.indexOf(decimalSymbol) + 1
-              } else {
-                if (!this.options.autoDecimalDigits && selectionStart > decimalSymbolPosition) {
-                  if (this.numberFormat.onlyDigits(value.substr(decimalSymbolPosition)).length - 1 === maximumFractionDigits) {
-                    caretPositionFromLeft -= 1
-                  }
-                }
+        if (decimalSymbol !== undefined && value.indexOf(decimalSymbol) !== -1) {
+          const decimalSymbolPosition = value.indexOf(decimalSymbol) + 1
+          if (Math.abs(newValueLength - value.length) > 1 && selectionStart <= decimalSymbolPosition) {
+            return this.formattedValue.indexOf(decimalSymbol) + 1
+          } else {
+            if (!this.options.autoDecimalDigits && selectionStart > decimalSymbolPosition) {
+              if (this.numberFormat.onlyDigits(value.substring(decimalSymbolPosition)).length - 1 === maximumFractionDigits) {
+                caretPositionFromLeft -= 1
               }
             }
-            if (this.options.hidePrefixOrSuffixOnFocus) {
-              return newValueLength - caretPositionFromLeft
-            } else {
-              const getSuffixLength = (str: string) => (str.includes(suffix[1]) ? suffix[1] : str.includes(suffix[0]) ? suffix[0] : '').length
-              const oldSuffixLength = getSuffixLength(value)
-              const newSuffixLength = getSuffixLength(this.formattedValue)
-              const suffixLengthDifference = Math.abs(newSuffixLength - oldSuffixLength)
-              return Math.max(newValueLength - Math.max(caretPositionFromLeft - suffixLengthDifference, newSuffixLength), prefix.length)
+          }
+        }
+        if (this.options.hidePrefixOrSuffixOnFocus) {
+          return newValueLength - caretPositionFromLeft
+        } else {
+          const getSuffixLength = (str: string) => (str.includes(suffix[1]) ? suffix[1] : str.includes(suffix[0]) ? suffix[0] : '').length
+          const oldSuffixLength = getSuffixLength(value)
+          const newSuffixLength = getSuffixLength(this.formattedValue)
+          const suffixLengthDifference = Math.abs(newSuffixLength - oldSuffixLength)
+          return Math.max(newValueLength - Math.max(caretPositionFromLeft - suffixLengthDifference, newSuffixLength), prefix.length)
+        }
+      }
+      this.setCaretPosition(getCaretPositionAfterFormat())
+    }
+  }
+
+  private focusEventListener: EventListener = () => {
+    this.focus = true
+    this.numberValueOnFocus = this.numberValue
+    setTimeout(() => {
+      const { value, selectionStart, selectionEnd } = this.el
+      this.format(value, this.options.hideNegligibleDecimalDigitsOnFocus)
+      if (selectionStart != null && selectionEnd != null && Math.abs(selectionStart - selectionEnd) > 0) {
+        this.setCaretPosition(0, this.el.value.length)
+      } else if (selectionStart != null) {
+        const getCaretPositionOnFocus = () => {
+          const { prefix, suffix, groupingSymbol } = this.numberFormat
+          if (!this.options.hidePrefixOrSuffixOnFocus) {
+            const suffixLength = suffix[this.numberValue === 1 ? 0 : 1].length
+            if (selectionStart >= value.length - suffixLength) {
+              return this.formattedValue.length - suffixLength
+            } else if (selectionStart < prefix.length) {
+              return prefix.length
             }
           }
-          this.setCaretPosition(getCaretPositionAfterFormat())
-        }
-      },
-      { capture: true }
-    )
-
-    this.el.addEventListener('focus', () => {
-      this.focus = true
-      setTimeout(() => {
-        const { value, selectionStart, selectionEnd } = this.el
-        this.format(value, this.options.hideNegligibleDecimalDigitsOnFocus)
-        if (selectionStart != null && selectionEnd != null && Math.abs(selectionStart - selectionEnd) > 0) {
-          this.setCaretPosition(0, this.el.value.length)
-        } else if (selectionStart != null) {
-          const getCaretPositionOnFocus = () => {
-            const { prefix, suffix, groupingSymbol } = this.numberFormat
-            if (!this.options.hidePrefixOrSuffixOnFocus) {
-              const suffixLength = suffix[this.numberValue === 1 ? 0 : 1].length
-              if (selectionStart >= value.length - suffixLength) {
-                return this.formattedValue.length - suffixLength
-              } else if (selectionStart < prefix.length) {
-                return prefix.length
-              }
-            }
-            let result = selectionStart
-            if (this.options.hidePrefixOrSuffixOnFocus) {
-              result -= prefix.length
-            }
-            if (this.options.hideGroupingSeparatorOnFocus && groupingSymbol !== undefined) {
-              result -= count(value.substring(0, selectionStart), groupingSymbol)
-            }
-            return result
+          let result = selectionStart
+          if (this.options.hidePrefixOrSuffixOnFocus) {
+            result -= prefix.length
           }
-          this.setCaretPosition(getCaretPositionOnFocus())
+          if (this.options.hideGroupingSeparatorOnFocus && groupingSymbol !== undefined) {
+            result -= count(value.substring(0, selectionStart), groupingSymbol)
+          }
+          return result
         }
-      })
+        this.setCaretPosition(getCaretPositionOnFocus())
+      }
     })
+  }
 
-    this.el.addEventListener('blur', () => {
-      this.focus = false
-      this.applyFixedFractionFormat(this.numberValue)
-    })
-
-    this.el.addEventListener(
-      'change',
-      () => {
-        this.onChange?.(this.getValue())
-      },
-      { capture: true }
-    )
+  private blurEventListener: EventListener = () => {
+    this.focus = false
+    this.applyFixedFractionFormat(this.numberValue, this.numberValueOnFocus !== this.numberValue)
   }
 
   private setCaretPosition(start: number, end = start) {
