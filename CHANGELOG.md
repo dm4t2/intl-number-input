@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.4.0](https://github.com/dm4t2/intl-number-input/compare/v1.3.1...v1.4.0) (2023-06-10)
+
+
+### Features
+
+* add `destroy` function for removing event listeners (closes [#18](https://github.com/dm4t2/intl-number-input/issues/18)) ([d604433](https://github.com/dm4t2/intl-number-input/commit/d60443317f193d9bfeef714ecd49b3698f15687e))
+
 ## [1.3.1](https://github.com/dm4t2/intl-number-input/compare/v1.3.0...v1.3.1) (2022-10-24)
 
 
