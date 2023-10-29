@@ -209,7 +209,9 @@ export interface NumberInputOptions {
   valueRange?: NumberRange
   /**
    * Step size which is used to {@link NumberInput.increment|increment} or {@link NumberInput.decrement|decrement} the value.
-   * Default is `1`.
+   * Default is the smallest possible value depending on the maximum fraction digits.
+   *
+   * @example `0.01` with 2 fraction digits
    */
   step?: number
   /**

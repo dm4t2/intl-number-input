@@ -271,7 +271,7 @@ export default defineComponent({
     Dialog
   },
   setup() {
-    const range = (from, to) =>
+    const range = (from: number, to: number) =>
       Array(to - from)
         .fill(from)
         .map((x, y) => x + y)
@@ -360,7 +360,7 @@ export default defineComponent({
       precisionRangeMaxValue: 5,
       precision: 2,
       precisionOptions: computed(() => range(1, 16)),
-      precisionRangeMinOptions: computed(() => range(1, state.precisionRangeMaxValue + 1)),
+      precisionRangeMinOptions: computed(() => range(0, state.precisionRangeMaxValue + 1)),
       precisionRangeMaxOptions: computed(() => range(state.precisionRangeMinValue, 16)),
       valueRangeEnabled: false,
       minValue: undefined,
@@ -406,5 +406,3 @@ export default defineComponent({
   }
 })
 </script>
-
-<style scoped></style>

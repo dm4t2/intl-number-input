@@ -10,7 +10,7 @@
     "paths": {
       "@/*": ["src/*"]
     },
-    "esModuleInterop": true
-  },
-  "include": ["src/*.ts"]
+    "esModuleInterop": true,
+    "skipLibCheck": true
+  }
 }

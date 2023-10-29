@@ -108,7 +108,7 @@ export class NumberInput {
     }
     this.numberFormat = new NumberFormat(this.options)
     this.numberMask = this.options.autoDecimalDigits ? new AutoDecimalDigitsNumberMask(this.numberFormat) : new DefaultNumberMask(this.numberFormat)
-    this.step = options.step && options.step > 0 ? Math.max(options.step, this.toFloat(1)) : this.toFloat(1)
+    this.step = Math.max(options.step ?? 0, this.getDefaultStep())
     this.minValue = this.getMinValue()
     this.maxValue = this.getMaxValue()
   }
@@ -136,6 +136,14 @@ export class NumberInput {
     return max
   }
 
+  private getDefaultStep(): number {
+    let defaultStep = 1
+    if (this.options.formatStyle === NumberFormatStyle.Percent) {
+      defaultStep /= 100
+    }
+    return this.toFloat(defaultStep)
+  }
+
   private validateStep(value: number): number {
     return this.toInteger(value) % this.toInteger(this.step) !== 0 ? this.getNextStep(value) : value
   }
@@ -145,7 +153,7 @@ export class NumberInput {
   }
 
   private toFloat(value: number): number {
-    return value / Math.pow(10, this.numberFormat.maximumFractionDigits)
+    return value / 10 ** this.numberFormat.maximumFractionDigits
   }
 
   private toInteger(value: number) {
