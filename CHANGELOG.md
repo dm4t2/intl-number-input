@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.4.1](https://github.com/dm4t2/intl-number-input/compare/v1.4.0...v1.4.1) (2023-10-29)
+
+
+### Bug Fixes
+
+* **percent format style:** fix calculation of default step (closes [#20](https://github.com/dm4t2/intl-number-input/issues/20)) ([b724817](https://github.com/dm4t2/intl-number-input/commit/b724817a4f4c27fa6a925d769f112647aa212b04))
+
 ## [1.4.0](https://github.com/dm4t2/intl-number-input/compare/v1.3.1...v1.4.0) (2023-06-10)
 
 
