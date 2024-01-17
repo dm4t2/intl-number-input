@@ -1,0 +1,647 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`NumberFormat > constructing number formats > currency > should work for the respective locale and currency > ar-SA_SAR 1`] = `
+NumberFormat {
+  "currency": "SAR",
+  "currencyDisplay": undefined,
+  "decimalSymbol": "٫",
+  "digits": [
+    "٠",
+    "١",
+    "٢",
+    "٣",
+    "٤",
+    "٥",
+    "٦",
+    "٧",
+    "٨",
+    "٩",
+  ],
+  "groupingSymbol": "٬",
+  "locale": "ar-SA",
+  "maximumFractionDigits": 2,
+  "minimumFractionDigits": 2,
+  "minusSymbol": "؜-",
+  "negativePrefix": "؜-‏",
+  "prefix": "‏",
+  "style": "currency",
+  "suffix": [
+    " ر.س.‏",
+    " ر.س.‏",
+  ],
+  "unit": undefined,
+  "unitDisplay": undefined,
+}
+`;
+
+exports[`NumberFormat > constructing number formats > currency > should work for the respective locale and currency > bg-BG_BGN 1`] = `
+NumberFormat {
+  "currency": "BGN",
+  "currencyDisplay": undefined,
+  "decimalSymbol": ",",
+  "digits": [
+    "0",
+    "1",
+    "2",
+    "3",
+    "4",
+    "5",
+    "6",
+    "7",
+    "8",
+    "9",
+  ],
+  "groupingSymbol": " ",
+  "locale": "bg-BG",
+  "maximumFractionDigits": 2,
+  "minimumFractionDigits": 2,
+  "minusSymbol": "-",
+  "negativePrefix": "-",
+  "prefix": "",
+  "style": "currency",
+  "suffix": [
+    " лв.",
+    " лв.",
+  ],
+  "unit": undefined,
+  "unitDisplay": undefined,
+}
+`;
+
+exports[`NumberFormat > constructing number formats > currency > should work for the respective locale and currency > de-CH_EUR 1`] = `
+NumberFormat {
+  "currency": "EUR",
+  "currencyDisplay": undefined,
+  "decimalSymbol": ".",
+  "digits": [
+    "0",
+    "1",
+    "2",
+    "3",
+    "4",
+    "5",
+    "6",
+    "7",
+    "8",
+    "9",
+  ],
+  "groupingSymbol": "’",
+  "locale": "de-CH",
+  "maximumFractionDigits": 2,
+  "minimumFractionDigits": 2,
+  "minusSymbol": "-",
+  "negativePrefix": "EUR-",
+  "prefix": "EUR ",
+  "style": "currency",
+  "suffix": [
+    "",
+    "",
+  ],
+  "unit": undefined,
+  "unitDisplay": undefined,
+}
+`;
+
+exports[`NumberFormat > constructing number formats > currency > should work for the respective locale and currency > de-DE_EUR 1`] = `
+NumberFormat {
+  "currency": "EUR",
+  "currencyDisplay": undefined,
+  "decimalSymbol": ",",
+  "digits": [
+    "0",
+    "1",
+    "2",
+    "3",
+    "4",
+    "5",
+    "6",
+    "7",
+    "8",
+    "9",
+  ],
+  "groupingSymbol": ".",
+  "locale": "de-DE",
+  "maximumFractionDigits": 2,
+  "minimumFractionDigits": 2,
+  "minusSymbol": "-",
+  "negativePrefix": "-",
+  "prefix": "",
+  "style": "currency",
+  "suffix": [
+    " €",
+    " €",
+  ],
+  "unit": undefined,
+  "unitDisplay": undefined,
+}
+`;
+
+exports[`NumberFormat > constructing number formats > currency > should work for the respective locale and currency > en-GB_GBP 1`] = `
+NumberFormat {
+  "currency": "GBP",
+  "currencyDisplay": undefined,
+  "decimalSymbol": ".",
+  "digits": [
+    "0",
+    "1",
+    "2",
+    "3",
+    "4",
+    "5",
+    "6",
+    "7",
+    "8",
+    "9",
+  ],
+  "groupingSymbol": ",",
+  "locale": "en-GB",
+  "maximumFractionDigits": 2,
+  "minimumFractionDigits": 2,
+  "minusSymbol": "-",
+  "negativePrefix": "-£",
+  "prefix": "£",
+  "style": "currency",
+  "suffix": [
+    "",
+    "",
+  ],
+  "unit": undefined,
+  "unitDisplay": undefined,
+}
+`;
+
+exports[`NumberFormat > constructing number formats > currency > should work for the respective locale and currency > en-IN_INR 1`] = `
+NumberFormat {
+  "currency": "INR",
+  "currencyDisplay": undefined,
+  "decimalSymbol": ".",
+  "digits": [
+    "0",
+    "1",
+    "2",
+    "3",
+    "4",
+    "5",
+    "6",
+    "7",
+    "8",
+    "9",
+  ],
+  "groupingSymbol": ",",
+  "locale": "en-GB",
+  "maximumFractionDigits": 2,
+  "minimumFractionDigits": 2,
+  "minusSymbol": "-",
+  "negativePrefix": "-₹",
+  "prefix": "₹",
+  "style": "currency",
+  "suffix": [
+    "",
+    "",
+  ],
+  "unit": undefined,
+  "unitDisplay": undefined,
+}
+`;
+
+exports[`NumberFormat > constructing number formats > currency > should work for the respective locale and currency > en-US_USD 1`] = `
+NumberFormat {
+  "currency": "USD",
+  "currencyDisplay": undefined,
+  "decimalSymbol": ".",
+  "digits": [
+    "0",
+    "1",
+    "2",
+    "3",
+    "4",
+    "5",
+    "6",
+    "7",
+    "8",
+    "9",
+  ],
+  "groupingSymbol": ",",
+  "locale": "en-US",
+  "maximumFractionDigits": 2,
+  "minimumFractionDigits": 2,
+  "minusSymbol": "-",
+  "negativePrefix": "-$",
+  "prefix": "$",
+  "style": "currency",
+  "suffix": [
+    "",
+    "",
+  ],
+  "unit": undefined,
+  "unitDisplay": undefined,
+}
+`;
+
+exports[`NumberFormat > constructing number formats > currency > should work for the respective locale and currency > es-ES_EUR 1`] = `
+NumberFormat {
+  "currency": "EUR",
+  "currencyDisplay": undefined,
+  "decimalSymbol": ",",
+  "digits": [
+    "0",
+    "1",
+    "2",
+    "3",
+    "4",
+    "5",
+    "6",
+    "7",
+    "8",
+    "9",
+  ],
+  "groupingSymbol": ".",
+  "locale": "es-ES",
+  "maximumFractionDigits": 2,
+  "minimumFractionDigits": 2,
+  "minusSymbol": "-",
+  "negativePrefix": "-",
+  "prefix": "",
+  "style": "currency",
+  "suffix": [
+    " €",
+    " €",
+  ],
+  "unit": undefined,
+  "unitDisplay": undefined,
+}
+`;
+
+exports[`NumberFormat > constructing number formats > currency > should work for the respective locale and currency > es-ES_EUR 2`] = `
+NumberFormat {
+  "currency": "EUR",
+  "currencyDisplay": undefined,
+  "decimalSymbol": ",",
+  "digits": [
+    "0",
+    "1",
+    "2",
+    "3",
+    "4",
+    "5",
+    "6",
+    "7",
+    "8",
+    "9",
+  ],
+  "groupingSymbol": ".",
+  "locale": "es-ES",
+  "maximumFractionDigits": 2,
+  "minimumFractionDigits": 2,
+  "minusSymbol": "-",
+  "negativePrefix": "-",
+  "prefix": "",
+  "style": "currency",
+  "suffix": [
+    " €",
+    " €",
+  ],
+  "unit": undefined,
+  "unitDisplay": undefined,
+}
+`;
+
+exports[`NumberFormat > constructing number formats > currency > should work for the respective locale and currency > fa-IR_IRR 1`] = `
+NumberFormat {
+  "currency": "IRR",
+  "currencyDisplay": undefined,
+  "decimalSymbol": undefined,
+  "digits": [
+    "۰",
+    "۱",
+    "۲",
+    "۳",
+    "۴",
+    "۵",
+    "۶",
+    "۷",
+    "۸",
+    "۹",
+  ],
+  "groupingSymbol": "٬",
+  "locale": "fa-IR",
+  "maximumFractionDigits": 0,
+  "minimumFractionDigits": 0,
+  "minusSymbol": "‎−",
+  "negativePrefix": "‎−‎ریال ",
+  "prefix": "‎ریال ",
+  "style": "currency",
+  "suffix": [
+    "",
+    "",
+  ],
+  "unit": undefined,
+  "unitDisplay": undefined,
+}
+`;
+
+exports[`NumberFormat > constructing number formats > currency > should work for the respective locale and currency > fr-CH_CHF 1`] = `
+NumberFormat {
+  "currency": "CHF",
+  "currencyDisplay": undefined,
+  "decimalSymbol": ".",
+  "digits": [
+    "0",
+    "1",
+    "2",
+    "3",
+    "4",
+    "5",
+    "6",
+    "7",
+    "8",
+    "9",
+  ],
+  "groupingSymbol": " ",
+  "locale": "fr-CH",
+  "maximumFractionDigits": 2,
+  "minimumFractionDigits": 2,
+  "minusSymbol": "-",
+  "negativePrefix": "-",
+  "prefix": "",
+  "style": "currency",
+  "suffix": [
+    " CHF",
+    " CHF",
+  ],
+  "unit": undefined,
+  "unitDisplay": undefined,
+}
+`;
+
+exports[`NumberFormat > constructing number formats > currency > should work for the respective locale and currency > ja_JPY 1`] = `
+NumberFormat {
+  "currency": "JPY",
+  "currencyDisplay": undefined,
+  "decimalSymbol": undefined,
+  "digits": [
+    "0",
+    "1",
+    "2",
+    "3",
+    "4",
+    "5",
+    "6",
+    "7",
+    "8",
+    "9",
+  ],
+  "groupingSymbol": ",",
+  "locale": "ja",
+  "maximumFractionDigits": 0,
+  "minimumFractionDigits": 0,
+  "minusSymbol": "-",
+  "negativePrefix": "-￥",
+  "prefix": "￥",
+  "style": "currency",
+  "suffix": [
+    "",
+    "",
+  ],
+  "unit": undefined,
+  "unitDisplay": undefined,
+}
+`;
+
+exports[`NumberFormat > constructing number formats > currency > should work for the respective locale and currency > nl-NL_EUR 1`] = `
+NumberFormat {
+  "currency": "EUR",
+  "currencyDisplay": undefined,
+  "decimalSymbol": ",",
+  "digits": [
+    "0",
+    "1",
+    "2",
+    "3",
+    "4",
+    "5",
+    "6",
+    "7",
+    "8",
+    "9",
+  ],
+  "groupingSymbol": ".",
+  "locale": "nl-NL",
+  "maximumFractionDigits": 2,
+  "minimumFractionDigits": 2,
+  "minusSymbol": "-",
+  "negativePrefix": "€ -",
+  "prefix": "€ ",
+  "style": "currency",
+  "suffix": [
+    "",
+    "",
+  ],
+  "unit": undefined,
+  "unitDisplay": undefined,
+}
+`;
+
+exports[`NumberFormat > constructing number formats > currency > should work for the respective locale and currency > pt_BRL 1`] = `
+NumberFormat {
+  "currency": "BRL",
+  "currencyDisplay": undefined,
+  "decimalSymbol": ",",
+  "digits": [
+    "0",
+    "1",
+    "2",
+    "3",
+    "4",
+    "5",
+    "6",
+    "7",
+    "8",
+    "9",
+  ],
+  "groupingSymbol": ".",
+  "locale": "pt",
+  "maximumFractionDigits": 2,
+  "minimumFractionDigits": 2,
+  "minusSymbol": "-",
+  "negativePrefix": "-R$ ",
+  "prefix": "R$ ",
+  "style": "currency",
+  "suffix": [
+    "",
+    "",
+  ],
+  "unit": undefined,
+  "unitDisplay": undefined,
+}
+`;
+
+exports[`NumberFormat > constructing number formats > currency > should work for the respective locale and currency > zh_CNY 1`] = `
+NumberFormat {
+  "currency": "CNY",
+  "currencyDisplay": undefined,
+  "decimalSymbol": ".",
+  "digits": [
+    "0",
+    "1",
+    "2",
+    "3",
+    "4",
+    "5",
+    "6",
+    "7",
+    "8",
+    "9",
+  ],
+  "groupingSymbol": ",",
+  "locale": "zh",
+  "maximumFractionDigits": 2,
+  "minimumFractionDigits": 2,
+  "minusSymbol": "-",
+  "negativePrefix": "-¥",
+  "prefix": "¥",
+  "style": "currency",
+  "suffix": [
+    "",
+    "",
+  ],
+  "unit": undefined,
+  "unitDisplay": undefined,
+}
+`;
+
+exports[`NumberFormat > constructing number formats > currency > should work with pluralization 1`] = `
+NumberFormat {
+  "currency": "EUR",
+  "currencyDisplay": "name",
+  "decimalSymbol": ".",
+  "digits": [
+    "0",
+    "1",
+    "2",
+    "3",
+    "4",
+    "5",
+    "6",
+    "7",
+    "8",
+    "9",
+  ],
+  "groupingSymbol": ",",
+  "locale": "en-US",
+  "maximumFractionDigits": 2,
+  "minimumFractionDigits": 2,
+  "minusSymbol": "-",
+  "negativePrefix": "-",
+  "prefix": "",
+  "style": "currency",
+  "suffix": [
+    " euro",
+    " euros",
+  ],
+  "unit": undefined,
+  "unitDisplay": undefined,
+}
+`;
+
+exports[`NumberFormat > constructing number formats > decimal > de-DE 1`] = `
+NumberFormat {
+  "currency": undefined,
+  "currencyDisplay": undefined,
+  "decimalSymbol": ",",
+  "digits": [
+    "0",
+    "1",
+    "2",
+    "3",
+    "4",
+    "5",
+    "6",
+    "7",
+    "8",
+    "9",
+  ],
+  "groupingSymbol": ".",
+  "locale": "de-DE",
+  "maximumFractionDigits": 3,
+  "minimumFractionDigits": 0,
+  "minusSymbol": "-",
+  "negativePrefix": "-",
+  "prefix": "",
+  "style": "decimal",
+  "suffix": [
+    "",
+    "",
+  ],
+  "unit": undefined,
+  "unitDisplay": undefined,
+}
+`;
+
+exports[`NumberFormat > constructing number formats > percent > de-DE 1`] = `
+NumberFormat {
+  "currency": undefined,
+  "currencyDisplay": undefined,
+  "decimalSymbol": ",",
+  "digits": [
+    "0",
+    "1",
+    "2",
+    "3",
+    "4",
+    "5",
+    "6",
+    "7",
+    "8",
+    "9",
+  ],
+  "groupingSymbol": ".",
+  "locale": "de-DE",
+  "maximumFractionDigits": 0,
+  "minimumFractionDigits": 0,
+  "minusSymbol": "-",
+  "negativePrefix": "-",
+  "prefix": "",
+  "style": "percent",
+  "suffix": [
+    " %",
+    " %",
+  ],
+  "unit": undefined,
+  "unitDisplay": undefined,
+}
+`;
+
+exports[`NumberFormat > constructing number formats > unit > de-DE 1`] = `
+NumberFormat {
+  "currency": undefined,
+  "currencyDisplay": undefined,
+  "decimalSymbol": ",",
+  "digits": [
+    "0",
+    "1",
+    "2",
+    "3",
+    "4",
+    "5",
+    "6",
+    "7",
+    "8",
+    "9",
+  ],
+  "groupingSymbol": ".",
+  "locale": "de-DE",
+  "maximumFractionDigits": 3,
+  "minimumFractionDigits": 0,
+  "minusSymbol": "-",
+  "negativePrefix": "-",
+  "prefix": "",
+  "style": "unit",
+  "suffix": [
+    " Byte",
+    " Byte",
+  ],
+  "unit": "byte",
+  "unitDisplay": undefined,
+}
+`;

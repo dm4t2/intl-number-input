@@ -1,0 +1,4 @@
+{
+  "extends": "@intl-number-input/typescript-config/vite.json",
+  "include": ["src"],
+}

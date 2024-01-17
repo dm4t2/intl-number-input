@@ -1,0 +1,30 @@
+{
+  "name": "@intl-number-input/vue",
+  "version": "0.0.0",
+  "type": "module",
+  "files": ["dist"],
+  "module": "./dist/index.js",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "lint": "eslint \"src/**/*.ts\""
+  },
+  "dependencies": {
+    "@intl-number-input/core": "*"
+  },
+  "devDependencies": {
+    "@intl-number-input/eslint-config": "*",
+    "@intl-number-input/typescript-config": "*",
+    "eslint": "^8.54.0",
+    "typescript": "^5.3.3",
+    "vite": "^5.0.10"
+  },
+  "peerDependencies": {
+    "vue": "^3.0.0"
+  }
+}

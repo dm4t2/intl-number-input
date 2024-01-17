@@ -1,0 +1,9 @@
+{
+  "extends": "@intl-number-input/typescript-config/vite.json",
+  "include": ["src"],
+  "compilerOptions": {
+    "paths": {
+      "@intl-number-input/vue": ["../../packages/vue/src/index.ts"]
+    }
+  }
+}

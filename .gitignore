@@ -1,6 +1,9 @@
 node_modules
+.turbo
+*.log
 dist
 coverage
 .idea
 docs/api
 temp
+cache

@@ -1,0 +1,46 @@
+{
+  "name": "@intl-number-input/core",
+  "description": "Easy input of formatted numbers based on the ECMAScript Internationalization API (Intl.NumberFormat).",
+  "author": "Matthias Stiller",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dm4t2/intl-number-input.git"
+  },
+  "homepage": "https://dm4t2.github.io/intl-number-input",
+  "keywords": [
+    "input mask",
+    "number format",
+    "ECMA-402"
+  ],
+  "version": "0.0.0",
+  "type": "module",
+  "files": [
+    "dist"
+  ],
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "scripts": {
+    "build": "tsc && vite build",
+    "lint": "eslint \"src/**/*.ts\"",
+    "test": "vitest"
+  },
+  "devDependencies": {
+    "@intl-number-input/eslint-config": "*",
+    "@intl-number-input/typescript-config": "*",
+    "@testing-library/dom": "^9.3.3",
+    "@vitest/coverage-v8": "^1.1.0",
+    "eslint": "^8.54.0",
+    "jsdom": "^23.0.1",
+    "typescript": "^5.3.3",
+    "vite": "^5.0.10",
+    "vite-plugin-dts": "^3.6.4",
+    "vitest": "^1.1.0"
+  }
+}
