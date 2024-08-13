@@ -63,6 +63,23 @@ describe('Number Input', () => {
       numberInput.setValue(0.51)
       expect(el.value).toBe('50%')
     })
+
+    it('should consider the precision', () => {
+      const numberInput = new NumberInput({
+        el,
+        options: {
+          locale: 'en',
+          formatStyle: NumberFormatStyle.Percent,
+          precision: { min: 0, max: 4 }
+        }
+      })
+      numberInput.setValue(0.123456)
+      expect(el.value).toBe('12.3457%')
+      numberInput.setValue(0.09)
+      expect(el.value).toBe('9%')
+      numberInput.setValue(0.1)
+      expect(el.value).toBe('10%')
+    })
   })
 
   describe('increment', () => {
@@ -100,5 +117,44 @@ describe('Number Input', () => {
 
       expect(el.value).toBe('1,234,567 Gb')
     })
+
+    it('should consider the precision when updating input value', () => {
+      new NumberInput({
+        el,
+        options: {
+          locale: 'en',
+          formatStyle: NumberFormatStyle.Percent,
+          precision: { min: 0, max: 4 }
+        }
+      })
+
+      fireEvent.input(el, { target: { value: '10.12345678' } })
+      expect(el.value).toBe('10.1234%')
+
+      fireEvent.input(el, { target: { value: '10.12' } })
+      expect(el.value).toBe('10.12%')
+
+      fireEvent.input(el, { target: { value: '10' } })
+      expect(el.value).toBe('10%')
+    })
   })
+
+  describe('on blur', () => {
+    it('should format the value, considering the precision', () => {
+      new NumberInput({
+        el,
+        options: {
+          locale: 'en',
+          formatStyle: NumberFormatStyle.Percent,
+          precision: { min: 0, max: 4 }
+        }
+      })
+
+      fireEvent.input(el, { target: { value: '10.1234' } })
+      fireEvent.blur(el)
+
+      expect(el.value).toBe('10.1234%')
+    })
+  })
+
 })
